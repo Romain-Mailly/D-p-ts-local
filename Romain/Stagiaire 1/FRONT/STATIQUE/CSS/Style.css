@@ -8,6 +8,13 @@
 {
     display: flex;
 }
+.three
+{
+    float: right;
+    width: 351px;
+    height: 459px;
+    background-color: grey;
+}
 ul
 {
     background-color: black;
@@ -56,3 +63,4 @@ a:visited
     }
 
 } 
+ 
