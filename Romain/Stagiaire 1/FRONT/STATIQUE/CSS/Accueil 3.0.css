@@ -1,7 +1,4 @@
-html
-{
-    width: 1126px;
-}
+
 .one
 {
     font-size: 18pt;
@@ -31,6 +28,10 @@ ul
 a:visited
 {
     color: white;
+}
+#Promotions
+{
+    width: 100%;
 }
 
 @media screen and (max-width: 768px) 
