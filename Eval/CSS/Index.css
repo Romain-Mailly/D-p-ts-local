@@ -1,0 +1,47 @@
+.droite
+{
+    float: right;
+    background-color: grey;
+    padding-right: 23%;
+    padding-bottom: 36.85%;
+
+}
+ul
+{
+    background-color: black;
+    border: 15px solid black;
+}
+a
+{
+    color: white;  
+}
+.one
+{
+    float: right;
+    font-size: 18pt;
+    padding-right: 40%;
+}
+@media screen and (max-width: 768px)
+{
+    html
+    {
+        font-size: 100%;
+    }
+    img
+    {
+        max-width: 100%;
+        height: auto;
+    }
+    .droite
+    {
+        display: none;
+    }
+    nav a
+    {
+        display: block;
+    }
+    footer a
+    {
+        display: block;
+    }
+}
