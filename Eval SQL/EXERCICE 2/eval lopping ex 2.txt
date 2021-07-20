@@ -1,0 +1,12 @@
+Exercice 2 de la base de deonnée GESCOM :
+
+1- posts ne contient aucune clé étrangère, elle est indépendante.
+2- employees contient deux clés étrangères, l'une qui associe emp_pos_id à pos_id de la table posts et l'autre (interne) qui associe emp_superior_id à emp_id.
+3- countries ne contient aucune clé étrangère, elle est indépendante.
+4- suppliers contient une clé étrangère qui associe sup_countries_id à cou_id de la table countries.
+5- categories contient une clé étrangère interne qui associe cat_parent_id à cat_id.
+6- products contient deux clés étrangères, l'une qui associe pro_cat_id à cat_id de la table categories et l'autre qui relie pro_sup_id à sup_id de la table suppliers.
+7- customers contient une clé étrangère qui associe cus_countries_id à cou_id de la table countries.
+8- orders contient une clé étrangère qui associe ord_cus_id à cus_id de la table customers.
+9- order_details contient une clé étrangère qui associe ode_ord_id à ord_id de la table orders.
+
