@@ -31,7 +31,7 @@
                         <a class="nav-link" href="Index.html">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="Tableau.html">Tableau</a>
+                        <a class="nav-link" href="liste.php">Tableau</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="Contact.html">Contact</a>
@@ -45,6 +45,7 @@
         </nav>
 
         <img src="jarditou_html_zip/images/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
+        <br><br>
         <h1>Liste des produits</h1>
             <?php
 require "connexion_bdd.php" ;
@@ -66,8 +67,8 @@ if ($result -> rowCount() == 0)
 }
 ?>
 
-            <table class="table-striped table-bordered table-hover col-12">
-                <thead>
+            <table class="table table-striped table-bordered table-hover col-12">
+                <thead class="thead-dark">
                     <tr>
                         <th>Photo</th>
                         <th>ID</th>
@@ -90,7 +91,7 @@ if ($result -> rowCount() == 0)
                     echo "<td>" . $row -> pro_ref . "</td>" ;
                     echo "<td><a href=\"detail.php?pro_id=".$row->pro_id." \"
                             title=\"".$row->pro_libelle."\">$row->pro_libelle</a></td>";
-                    echo "<td>" . $row -> pro_prix . "</td>" ;
+                    echo "<td>" . $row -> pro_prix . "€ </td>" ;
                     echo "<td>" . $row -> pro_stock . "</td>" ;
                     echo "<td>" . $row -> pro_couleur . "</td>" ;
                     echo "<td>" . $row -> pro_d_ajout . "</td>" ;

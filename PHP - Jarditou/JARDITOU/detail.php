@@ -12,10 +12,13 @@
     $pro_id = $_GET["pro_id"] ;
     require "connexion_bdd.php" ;
     $db = connexionBase() ;
-    $requete = "SELECT * FROM produits WHERE pro_id = " . $pro_id ;
+    $requete = "SELECT * FROM produits, categories WHERE pro_id = " . $pro_id . " AND pro_cat_id = cat_id" ;
     $resultat = $db -> query($requete) ;
     $produit = $resultat->fetch(PDO::FETCH_OBJ) ;
     $resultat -> closeCursor() ;
+    $categorie = $db->prepare("SELECT cat_nom  FROM categories, produits WHERE cat_id = pro_cat_id AND pro_id = " . $pro_id);
+    $categorie -> execute() ;
+    $rowsCategorie = $categorie->fetch(PDO::FETCH_OBJ)
   ?>
 </head>
 
@@ -38,7 +41,7 @@
             <a class="nav-link" href="Index.html">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="Tableau.html">Tableau</a>
+            <a class="nav-link" href="liste.php">Tableau</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="Contact.html">Contact</a>
@@ -59,7 +62,14 @@
     
     <form action="modif.php?pro_id=<?php echo $pro_id ; ?>" method="post">
 
-      <!-- Libelle -->
+
+      <!-- Photo -->
+      <img src="jarditou_photos/<?php echo "$produit->pro_id.$produit->pro_photo"; ?>" class="img-fluid rounded mx-auto d-block col-3" alt="<?php echo $produit->pro_libelle; ?>" title="<?php echo $produit->pro_libelle; ?>">
+
+
+
+
+      <!-- ID -->
 
      
         <label for="id">ID</label> <br>
@@ -76,9 +86,11 @@
       <!-- Catégorie -->
 
       
-        <label for="categorie">Catégorie</label>
-        <input class="form-control" type="text" name="categorie" id="categorie"
-          value="<?php echo $produit -> pro_cat_id ;?>" readonly>
+      <div class="form-group">
+    <label for="categorie">Catégorie*</label>
+    <input class="form-control" type="text" name="categorie" id="categorie" value="<?php echo $rowsCategorie->cat_nom; ?>" readonly >
+  </div>
+
      <br>
 
       <!-- Libellé -->
@@ -102,7 +114,7 @@
 
     
         <label for="prix">Prix</label>
-        <input class="form-control" type="text" name="prix" id="prix" value="<?php echo $produit -> pro_prix . "€";?>"
+        <input class="form-control" type="text" name="prix" id="prix" value="<?php echo $produit -> pro_prix ;?>"
           readonly>
       <br>
 

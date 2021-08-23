@@ -10,10 +10,12 @@
     $pro_id = $_GET["pro_id"] ;
     require "connexion_bdd.php" ;
     $db = connexionBase() ;
-    $requete = "SELECT * FROM produits WHERE pro_id = " . $pro_id ;
+    $requete = "SELECT * FROM produits, categories WHERE pro_id = " . $pro_id . " AND pro_cat_id = cat_id" ;
     $resultat = $db -> query($requete) ;
     $produit = $resultat->fetch(PDO::FETCH_OBJ) ;
     $resultat -> closeCursor() ;
+    $categorie = $db->prepare("SELECT cat_nom, cat_id  FROM categories ORDER BY cat_nom");
+    $categorie -> execute() ;
   ?>
 </head>
 <body>
@@ -35,7 +37,7 @@
                         <a class="nav-link" href="Index.html">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="Tableau.html">Tableau</a>
+                        <a class="nav-link" href="liste.php">Tableau</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="Contact.html">Contact</a>
@@ -49,9 +51,12 @@
         </nav>
 
 <img src="jarditou_html_zip/images/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
-  <form action="detail.php?pro_id=<?php echo $pro_id ; ?>" method="post">
 
-    <!-- Libelle -->
+
+
+  <form action="verif_modif.php" method="post">
+
+    <!-- ID -->
 
     <label for="id">ID</label> <br>
     <input class="form-control" type="text" name="id" id="id" value="<?php echo $produit -> pro_id ; ?>" readonly >
@@ -60,61 +65,76 @@
     <!-- Référence --> 
     
     <label for="ref">Référence</label>
-    <input class="form-control" type="text" name="ref" id="ref" value="<?php echo $produit -> pro_ref ;?>"  >
+    <input type="text" class="form-control <?php if (isset($_GET['eref'])) { echo 'border border-danger'; } ?>" id="ref" name="ref" value="<?php echo $produit->pro_ref; ?>">
+    <?php if (isset($_GET['eref'])) { echo '<i>La référence n\'a pas été renseignée, comporte des caractères spéciaux, ou comporte trop de caractères (max: 10).</i> <br>'; } ?>
     <br>
 
     <!-- Catégorie --> 
     
-    <label for="categorie">Catégorie</label>
-    <input class="form-control" type="text" name="categorie" id="categorie" value="<?php echo $produit -> pro_cat_id ;?>"  >
-    <br>
+    <div class="form-group">
+    <label for="categorie">Catégorie*</label>
+    <select id="categorie" name="categorie" class="form-control">
+      <?php
+
+        while ($rowsCategorie = $categorie->fetch(PDO::FETCH_OBJ)):
+      ?>
+      <option value="<?php echo $rowsCategorie->cat_id; ?>" <?php if ($rowsCategorie->cat_nom == $produit->cat_nom) { echo 'selected'; } ?>>
+      <?php echo $rowsCategorie->cat_nom; ?>
+      </option>
+      <?php
+        endwhile;
+
+        $categorie->closeCursor(); 
+     ?>
+    </select>
+  </div>
 
     <!-- Libellé --> 
     
     <label for="libelle">Libellé</label>
-    <input class="form-control" type="text" name="libelle" id="libelle" value="<?php echo $produit -> pro_libelle ;?>"  >
+    <input type="text" class="form-control <?php if (isset($_GET['elib'])) { echo 'border border-danger'; } ?>" id="libelle" name="libelle" value="<?php echo $produit->pro_libelle; ?>">
+    <?php if (isset($_GET['elib'])) { echo '<i>Le libellé n\'a pas été renseignée, comporte des caractères spéciaux ou des chiffres ou comporte trop de caractères (max: 200).</i> <br>'; } ?>
     <br>
 
     
     <!-- Description --> 
     
     <label for="description">Descritpion</label>
-    <textarea class="form-control" name="description" id="description" > <?php echo $produit -> pro_description ;?> </textarea> 
+    <textarea class="form-control <?php if (isset($_GET['edesc'])) { echo 'border border-danger'; } ?> " name="description" id="description"> <?php echo $produit -> pro_description ;?> </textarea>
+    <?php if (isset($_GET['edesc'])) { echo '<i>La description n\'a pas été renseignée ou comporte trop de caractères (max: 1000).</i> <br>'; } ?>
     <br>
 
     <!-- Prix --> 
     
     <label for="prix">Prix</label>
-    <input class="form-control" type="text" name="prix" id="prix" value="<?php echo $produit -> pro_prix . "€";?>"  >
+    <input type="text" class="form-control <?php if (isset($_GET['eprix'])) { echo 'border border-danger'; } ?>" id="prix" name="prix" value="<?php echo $produit->pro_prix; ?>">
+    <?php if (isset($_GET['eprix'])) { echo '<i>Le prix n\'a pas été renseignée, comporte des caractères spéciaux ou des lettres, ou comporte trop de caractères (max: 6 dont 2 chiffres après la virgule).</i> <br>'; } ?>
     <br>
 
     <!-- Couleur --> 
     
     <label for="couleur">Couleur</label>
-    <input class="form-control" type="text" name="couleur" id="couleur" value="<?php echo $produit -> pro_couleur ;?>"  > 
+    <input type="text" class="form-control <?php if (isset($_GET['ecolor'])) { echo 'border border-danger'; } ?>" id="couleur" name="couleur" value="<?php echo $produit->pro_couleur; ?>">
+    <?php if (isset($_GET['ecolor'])) { echo '<i>La couleur n\'a pas été renseignée, comporte des caractères spéciaux ou des chiffres ou comporte trop de caractères (max: 30).</i> <br>'; } ?> 
     <br>
+
 
 
     <!-- Bloque --> 
 
-    <?php
-      if ($produit -> pro_bloque == 1)
-      {
-        echo '<form class="form-group">
+   <?php if ($produit -> pro_bloque == 1): ?>
+        <div class="form-group">
         <label for="bloque">Produit bloqué : </label>
         <input type="radio" name="bloque" value="1" readonly checked > Oui    
         <input type="radio" name="bloque" value="0" readonly > Non <br>
-        </form>' ;
-      }
-      else
-      {
-        echo '<form class="form-group">
+   </div>
+      <?php else: ?>
+        <div class="form-group">
         <label for="bloque">Produit bloqué : </label>
         <input type="radio" name="bloque" value="1" readonly > Oui    
         <input type="radio" name="bloque" value="0" readonly checked > Non <br>
-        </form>' ;
-      }
-    ?>
+      </div>
+        <?php endif; ?>
 
     <!-- Date d'ajout -->
 
@@ -135,8 +155,8 @@
 
     ?>
 
-        <input type="button" class="btn btn-dark" value="Envoyer">
-        <input type="submit" class="btn btn-warning" value="Annuler">
+        <input type="submit" class="btn btn-dark" value="Envoyer">
+        <a class="btn btn-warning" href="detail.php?pro_id=<?php echo $pro_id ; ?>">Annuler</a>
 
         <br>
   </form>
