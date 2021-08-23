@@ -10,17 +10,17 @@
     <title>Liste</title>
 </head>
 
-<body>
+<body style="background-color: #243447;">
     <div class="container">
 
 
-        <img src="jarditou_html_zip/images/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210"
+        <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210"
             height="70">
 
-        <h1 class="display-5 float-right">Tout le jardin</h1>
+        <h1 class="display-5 float-right text-light">Tout le jardin</h1>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Jarditou.com</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark rounded">
+            <a class="navbar-brand text-light" href="Index.html">Jarditou.com</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,13 +28,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="Index.html">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-light" href="Index.html">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="liste.php">Tableau</a>
+                        <a class="nav-link text-light" href="liste.php">Tableau</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="Contact.html">Contact</a>
+                        <a class="nav-link text-light" href="Contact.html">Contact</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -44,9 +44,9 @@
             </div>
         </nav>
 
-        <img src="jarditou_html_zip/images/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
+        <img class="rounded" src="jarditou_photos/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
         <br><br>
-        <h1>Liste des produits</h1>
+        <h1 class="text-light">Liste des produits</h1>
             <?php
 require "connexion_bdd.php" ;
 $db = connexionBase() ;
@@ -67,7 +67,7 @@ if ($result -> rowCount() == 0)
 }
 ?>
 
-            <table class="table table-striped table-bordered table-hover col-12">
+            <table class="table table-striped table-bordered table-hover table-dark col-12 ">
                 <thead class="thead-dark">
                     <tr>
                         <th>Photo</th>
@@ -86,11 +86,10 @@ if ($result -> rowCount() == 0)
                 while ($row = $result -> fetch(PDO::FETCH_OBJ))
                 {
                 echo "<tr>" ;
-                    echo '<td> <img class="img-fluid" src="jarditou_photos/' . $row -> pro_id . '.' . $row -> pro_photo . '" width="100px"> </td>';
+                    echo '<td> <img class="img-fluid" src="jarditou_photos/' . $row -> pro_id . '.png" width="100px"> </td>';
                     echo "<td>" . $row -> pro_id . "</td>" ;
                     echo "<td>" . $row -> pro_ref . "</td>" ;
-                    echo "<td><a href=\"detail.php?pro_id=".$row->pro_id." \"
-                            title=\"".$row->pro_libelle."\">$row->pro_libelle</a></td>";
+                    echo "<td><b><a class='text-warning' href=\"detail.php?pro_id=".$row->pro_id." \" title=\"".$row->pro_libelle."\">$row->pro_libelle</a></b></td>";
                     echo "<td>" . $row -> pro_prix . "€ </td>" ;
                     echo "<td>" . $row -> pro_stock . "</td>" ;
                     echo "<td>" . $row -> pro_couleur . "</td>" ;
@@ -108,26 +107,25 @@ if ($result -> rowCount() == 0)
 
                 echo "</table>"
             ?>
-    <br>
-    <footer class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">mentions légales <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">horaires</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">plan du site</a>
-              </li>
-          </ul>
-        </div>
-    </footer>
-
+    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-secondary rounded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">mentions légales <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">horaires</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="#">plan du site</a>
+          </li>
+      </ul>
+    </div>
+</footer>
+<br>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

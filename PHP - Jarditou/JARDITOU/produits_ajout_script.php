@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: #243447;">
     <div class="container">
-    <img src="jarditou_html_zip/images/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210"
+    <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210"
             height="70">
 
-        <h1 class="display-5 float-right">Tout le jardin</h1>
+        <h1 class="display-5 float-right text-light">Tout le jardin</h1>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Jarditou.com</a>
+            <a class="navbar-brand" href="Index.html">Jarditou.com</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
             </div>
         </nav>
 
-<img src="jarditou_html_zip/images/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
+<img src="jarditou_photos/promotion.jpg" class="rounded" alt="Promotions" title="Promotions" width="100%">
     
     <?php
     require "connexion_bdd.php" ;
@@ -96,7 +96,24 @@
 
 
 
-
+    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-secondary rounded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">mentions légales <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">horaires</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="#">plan du site</a>
+          </li>
+      </ul>
+    </div>
+</footer>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

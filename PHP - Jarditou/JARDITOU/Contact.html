@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Jarditou</title>
 </head>
-<body>
+<body style="background-color: #243447;">
     <div class="container">
 
-        <img src="jarditou_html_zip/images/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210" height="70">
+        <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210" height="70">
     
-    <h1 class="display-5 float-right">Tout le jardin</h1>
+    <h1 class="display-5 float-right text-light">Tout le jardin</h1>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Jarditou.com</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand text-light" href="Index.html">Jarditou.com</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="Index.html">Accueil <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="liste.php">Tableau</a>
-          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="Contact.html">Contact</a>
+            <a class="nav-link text-light" href="#">Accueil <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="liste.php">Tableau</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="Contact.html">Contact</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -38,65 +38,65 @@
       </div>
     </nav>
     
-    <img src="jarditou_html_zip/images/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
+    <img src="jarditou_photos/promotion.jpg" class="rounded" alt="Promotions" title="Promotions" width="100%">
   
     <form action="destination.php" method="POST">
-    <p>* Ces zones sont obligatoires </p>
+    <p class="text-light">* Ces zones sont obligatoires </p>
     <br>
-        <legend><p class="h3">Vos coordonnées</p></legend>
+        <legend><p class="h3 text-light">Vos coordonnées</p></legend>
 
         <div class="form-group">
-            <label for="nom">Votre nom* :</label>
-            <input class="form-control" type="text" id="nom" name="nom" required>
+            <label class="text-light" for="nom">Votre nom* :</label>
+            <input class="form-control" type="text" id="nom" name="nom" placeholder="Veuillez renseigner votre nom..." required>
         </div>
 
         
 
         <div class="form-group">
-            <label for="prènom">Votre prènom* :</label>
-            <input class="form-control" type="text" id="prènom" name="prènom" required>
+            <label  class="text-light"for="prenom">Votre prénom* :</label>
+            <input class="form-control" type="text" id="prenom" name="prenom" placeholder="Veuillez renseigner votre prénom..."required>
         </div>
 
     
 
         <div class="form-group">
-            <label for="sexe">Sexe* :</label>
-            <input type="radio" id="sexe" name="sexe" value="Féminin" required>Féminin
-            <input type="radio" name="sexe" value="Masculin" required>Masculin
-            <input type="radio" name="sexe" value="Neutre" required>Neutre
+            <label  class="text-light"for="sexe">Sexe* :</label>
+            <input type="radio" id="sexe" name="sexe" value="Féminin" required> <span class="text-light">Féminin</span>
+            <input type="radio" name="sexe" value="Masculin" required> <span class="text-light">Masculin</span>
+            <input type="radio" name="sexe" value="Neutre" required> <span class="text-light">Neutre</span>
         </div>
 
         
         <div class="form-group">
-            <label for="ddn">Date de naissance* :</label>
+            <label  class="text-light"for="ddn">Date de naissance* :</label>
             <input class="form-control" type="date" id="ddn" name="ddn" required>
         </div>
        
         <div class="form-group">
-            <label for="cp">Code postal* :</label>
-            <input class="form-control" type="number" id="cp" name="cp" required>
+            <label  class="text-light"for="cp">Code postal* :</label>
+            <input class="form-control" type="number" id="cp" name="cp" placeholder="Veuillez renseigner votre code postal..."required>
         </div>
        
         <div class="form-group">
-            <label for="adresse">Adresse :</label>
+            <label  class="text-light"for="adresse">Adresse :</label>
             <input class="form-control" type="text" id="adresse" name="adresse">
         </div>
        
         <div class="form-group">
-            <label for="ville">Ville :</label>
+            <label  class="text-light"for="ville">Ville :</label>
             <input class="form-control" type="text" id="ville" name="ville">
         </div>
        
         <div class="form-group">
-            <label for="email">Email* :</label>
+            <label  class="text-light"for="email">Email* :</label>
             <input class="form-control" type="email" id="email" name="email" placeholder="dave.loper@afpa.fr" required>
         </div>
 
 
-        <legend><p class="h3">Votre demande</p></legend>
+        <legend><p class="h3 text-light">Votre demande</p></legend>
 
         <div class="form-group">
-        <label for="sujet">Sujet* :</label>
+        <label  class="text-light"for="sujet">Sujet* :</label>
         <select class="form-control" id="sujet" name="sujet" required>
             <option value="" selected disabled>Veuillez séléctionner un sujet</option>
             <option value="Commandes">Mes commandes</option>
@@ -107,37 +107,38 @@
         </div>
 
         <div class="form-group">
-            <label for="questions">Votre question* :</label>
-            <textarea class="form-control" id="questions" name="questions"></textarea>
+            <label  class="text-light"for="questions">Votre question* :</label>
+            <textarea class="form-control" id="questions" name="questions" placeholder="Veuillez renseigner votre question..."></textarea>
         </div>
     
         <div class="form-group">
             <input type="checkbox" id="traitement" name="traitement">
-            <label for="traitement">* J'accepte le traitement informatique de ce formulaire</label>
+            <label  class="text-light"for="traitement">* J'accepte le traitement informatique de ce formulaire</label>
         </div>
     
-    <button class="btn btn-dark" type="submit" id="envoyer" name="envoyer" value="Envoyer">Envoyer</button>
-    <button class="btn btn-dark" type="reset" id="annuler" name="annuler" value="Annuler">Annuler</button>
+    <button class="btn btn-warning" type="submit" id="envoyer" name="envoyer" value="Envoyer">Envoyer</button>
+    <button class="btn btn-secondary" type="reset" id="annuler" name="annuler" value="Annuler">Annuler</button>
+
     </form>
     <br>
-    <footer class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">mentions légales <span class="sr-only">(current)</span></a>
+    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-secondary rounded">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">mentions légales <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">horaires</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-light" href="#">plan du site</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">horaires</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">plan du site</a>
-              </li>
-          </ul>
-        </div>
-    </footer>
+        </ul>
+      </div>
+  </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

@@ -22,15 +22,15 @@
   ?>
 </head>
 
-<body>
+<body style="background-color: #243447;">
   <div class="container">
-    <img src="jarditou_html_zip/images/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210"
+    <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210"
       height="70">
 
-    <h1 class="display-5 float-right">Tout le jardin</h1>
+    <h1 class="display-5 float-right text-light">Tout le jardin</h1>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Jarditou.com</a>
+      <a class="navbar-brand" href="Index.html">Jarditou.com</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -54,17 +54,17 @@
       </div>
     </nav>
 
-    <img src="jarditou_html_zip/images/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
+    <img src="jarditou_photos/promotion.jpg" class="rounded" alt="Promotions" title="Promotions" width="100%">
 
     <br><br>
-    <h1>Détails des produits</h1>
+    <h1 class="text-light">Détails des produits</h1>
     <br>
     
     <form action="modif.php?pro_id=<?php echo $pro_id ; ?>" method="post">
 
 
       <!-- Photo -->
-      <img src="jarditou_photos/<?php echo "$produit->pro_id.$produit->pro_photo"; ?>" class="img-fluid rounded mx-auto d-block col-3" alt="<?php echo $produit->pro_libelle; ?>" title="<?php echo $produit->pro_libelle; ?>">
+      <img src="jarditou_photos/<?php echo "$produit->pro_id.png"; ?>" class="img-fluid rounded mx-auto d-block col-3" alt="<?php echo $produit->pro_libelle; ?>" title="<?php echo $produit->pro_libelle; ?>">
 
 
 
@@ -72,14 +72,14 @@
       <!-- ID -->
 
      
-        <label for="id">ID</label> <br>
+        <label class="text-light" for="id">ID</label> <br>
         <input class="form-control" type="text" name="id" id="id" value="<?php echo $produit -> pro_id ; ?>" readonly>
      <br>
 
       <!-- Référence -->
 
      
-        <label for="ref">Référence</label>
+        <label class="text-light" for="ref">Référence</label>
         <input class="form-control" type="text" name="ref" id="ref" value="<?php echo $produit -> pro_ref ;?>" readonly>
       <br>
 
@@ -87,7 +87,7 @@
 
       
       <div class="form-group">
-    <label for="categorie">Catégorie*</label>
+    <label class="text-light" for="categorie">Catégorie*</label>
     <input class="form-control" type="text" name="categorie" id="categorie" value="<?php echo $rowsCategorie->cat_nom; ?>" readonly >
   </div>
 
@@ -96,7 +96,7 @@
       <!-- Libellé -->
 
    
-        <label for="libelle">Libellé</label>
+        <label class="text-light" for="libelle">Libellé</label>
         <input class="form-control" type="text" name="libelle" id="libelle"
           value="<?php echo $produit -> pro_libelle ;?>" readonly>
       <br>
@@ -105,7 +105,7 @@
       <!-- Description -->
 
       
-        <label for="description">Descritpion</label>
+        <label class="text-light" for="description">Descritpion</label>
         <textarea class="form-control" name="description" id="description"
           readonly> <?php echo $produit -> pro_description ;?> </textarea>
       <br>
@@ -113,14 +113,14 @@
       <!-- Prix -->
 
     
-        <label for="prix">Prix</label>
+        <label class="text-light" for="prix">Prix</label>
         <input class="form-control" type="text" name="prix" id="prix" value="<?php echo $produit -> pro_prix ;?>"
           readonly>
       <br>
 
       <!-- Couleur -->
 
-        <label for="couleur">Couleur</label>
+        <label class="text-light" for="couleur">Couleur</label>
         <input class="form-control" type="text" name="couleur" id="couleur"
           value="<?php echo $produit -> pro_couleur ;?>" readonly>
      <br>
@@ -132,36 +132,36 @@
       if ($produit -> pro_bloque == 1)
       {
         echo '
-        <label for="bloque">Produit bloqué : </label>
-        <input type="radio" name="bloque" value="1" disabled checked > Oui    
-        <input type="radio" name="bloque" value="0" disabled > Non <br>
+        <label class="text-light" for="bloque">Produit bloqué : </label>
+        <input type="radio" name="bloque" value="1" disabled checked > <span class="text-light">Oui</span>    
+        <input type="radio" name="bloque" value="0" disabled > <span class="text-light">Non</span> <br>
         ' ;
       }
       else
       {
         echo '
-        <label for="bloque">Produit bloqué : </label>
-        <input type="radio" name="bloque" value="1" disabled > Oui    
-        <input type="radio" name="bloque" value="0" disabled checked > Non <br>
+        <label class="text-light" for="bloque">Produit bloqué : </label>
+        <input type="radio" name="bloque" value="1" disabled > <span class="text-light">Oui</span>    
+        <input type="radio" name="bloque" value="0" disabled checked > <span class="text-light">Non</span> <br>
         ' ;
       }
     ?>
 
       <!-- Date d'ajout -->
 
-      Date d'ajout : <?php echo $produit -> pro_d_ajout . "<br><br>" ; ?>
+      <span class="text-light">Date d'ajout :</span> <?php echo '<span class="text-light">' . $produit -> pro_d_ajout . "</span><br><br>" ; ?>
 
       <!-- Date de modification -->
 
-      Date de modification :
+      <span class="text-light">Date de modification :</span>
       <?php
       if ($produit -> pro_d_modif == NULL )
       {
-        echo "Il n'y a pas eu de modification sur ce produit. <br><br> " ;
+        echo '<span class="text-light">Il n\'y a pas eu de modification sur ce produit. </span><br><br> ' ;
       }
       else
       {
-        echo $produit -> pro_d_modif . "<br><br>" ;
+        echo '<span class="text-light">' . $produit -> pro_d_modif . "</span><br><br>" ;
       }
 
     ?>
@@ -174,25 +174,24 @@
     </form>
     
     <br>
-    <footer class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">mentions légales <span class="sr-only">(current)</span></a>
+    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-secondary rounded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">mentions légales <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">horaires</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="#">plan du site</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">horaires</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">plan du site</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+      </ul>
+    </div>
+</footer>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
