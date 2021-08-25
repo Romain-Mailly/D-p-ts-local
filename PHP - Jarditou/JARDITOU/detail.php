@@ -43,7 +43,7 @@
             <a class="nav-link text-light" href="Index.html"><i class="fas fa-home"></i> Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-light" href="liste.php"><i class="fas fa-table"></i> Tableau</a>
+        <a class="nav-link text-light" href="liste.php"><i class="fas fa-list-ul"></i> Produits</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link text-light" href="Contact.html"><i class="far fa-user-circle"></i> Contact</a>
@@ -112,6 +112,13 @@
           readonly> <?php echo $produit -> pro_description ;?> </textarea>
       <br>
 
+      <!-- Stock -->
+      <label for="stock">Stock</label>
+      <input class="form-control" type="text" name="stock" id="stock"
+       value="<?php echo $produit->pro_stock ; ?>" readonly>
+
+      <br>
+
       <!-- Prix -->
 
     
@@ -156,7 +163,7 @@
       <!-- Date de modification -->
 
       <span class="text-light">Date de modification :</span>
-      <?php
+    <?php
       if ($produit -> pro_d_modif == NULL )
       {
         echo '<span class="text-light">Il n\'y a pas eu de modification sur ce produit. </span><br><br> ' ;
@@ -169,31 +176,35 @@
     ?>
     
     
-    
-    <button type="submit" class="btn btn-warning float-right"><i class="fas fa-pencil-alt"></i> Modifier</button><br>
-  
+      <div class="float-right">
+        <button type="submit" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Modifier</button>
+        <a href="confirmation_delete.php?pro_id=<?php echo $produit->pro_id ; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</a><br>
+      </div>  
+      <br><br>
     </form>
     
+  </div>
+
     <br>
-    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-secondary rounded">
+    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-light rounded">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-light" href="#"><i class="fas fa-list-ol"></i> Mentions légales <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-dark" href="#"><i class="fas fa-list-ol"></i> Mentions légales <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#"><i class="far fa-clock"></i> Horaires</a>
+          <a class="nav-link text-dark" href="#"><i class="far fa-clock"></i> Horaires</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" href="#"><i class="far fa-map"></i> Plan du site</a>
+            <a class="nav-link text-dark" href="#"><i class="far fa-map"></i> Plan du site</a>
           </li>
       </ul>
     </div>
 </footer>
-  </div>
+
     <script src="https://kit.fontawesome.com/08f7104fd7.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

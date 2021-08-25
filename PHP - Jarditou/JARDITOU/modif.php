@@ -39,7 +39,7 @@
             <a class="nav-link text-light" href="Index.html"><i class="fas fa-home"></i> Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-light" href="liste.php"><i class="fas fa-table"></i> Tableau</a>
+        <a class="nav-link text-light" href="liste.php"><i class="fas fa-list-ul"></i> Produits</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link text-light" href="Contact.html"><i class="far fa-user-circle"></i> Contact</a>
@@ -67,14 +67,14 @@
     <!-- Référence --> 
     
     <label for="ref">Référence</label>
-    <input type="text" class="form-control <?php if (isset($_GET['eref'])) { echo 'border border-warning'; } ?>" id="ref" name="ref" value="<?php echo $produit->pro_ref; ?>">
+    <input type="text" class="form-control <?php if (isset($_GET['eref'])) { echo 'border border-danger'; } ?>" id="ref" name="ref" value="<?php echo $produit->pro_ref; ?>">
     <?php if (isset($_GET['eref'])) { echo '<i>La référence n\'a pas été renseignée, comporte des caractères spéciaux, ou comporte trop de caractères (max: 10).</i> <br>'; } ?>
     <br>
 
     <!-- Catégorie --> 
     
     <div class="form-group">
-    <label for="categorie">Catégorie*</label>
+    <label for="categorie">Catégorie</label>
     <select id="categorie" name="categorie" class="form-control">
       <?php
 
@@ -102,9 +102,16 @@
     <!-- Description --> 
     
     <label for="description">Descritpion</label>
-    <textarea class="form-control <?php if (isset($_GET['edesc'])) { echo 'border border-danger'; } ?> " name="description" id="description"> <?php echo $produit -> pro_description ;?> </textarea>
+    <textarea rows="3" class="form-control <?php if (isset($_GET['edesc'])) { echo 'border border-danger'; } ?> " name="description" id="description"> <?php echo $produit -> pro_description ;?> </textarea>
     <?php if (isset($_GET['edesc'])) { echo '<i>La description n\'a pas été renseignée ou comporte trop de caractères (max: 1000).</i> <br>'; } ?>
     <br>
+
+    <!-- Stock -->
+    <label for="stock">Stock</label>
+    <input type="text" class="form-control <?php if (isset($_GET['estock'])) { echo 'border border-danger'; } ?>" id="stock" name="stock" value="<?php echo $produit->pro_stock; ?>">
+    <?php if (isset($_GET['estock'])) { echo '<i>Le stock n\'a pas été renseignée, comporte des caractères spéciaux ou des lettres, ou comporte trop de caractères (max: 11).</i> <br>'; } ?>
+       <br>
+
 
     <!-- Prix --> 
     
@@ -169,20 +176,20 @@
   </form>
 
     <br>
-    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-secondary rounded">
+    <footer class="navbar navbar-expand-lg navbar-dark border-light bg-light rounded">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-light" href="#"><i class="fas fa-list-ol"></i> Mentions légales <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-dark" href="#"><i class="fas fa-list-ol"></i> Mentions légales <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#"><i class="far fa-clock"></i> Horaires</a>
+          <a class="nav-link text-dark" href="#"><i class="far fa-clock"></i> Horaires</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" href="#"><i class="far fa-map"></i> Plan du site</a>
+            <a class="nav-link text-dark" href="#"><i class="far fa-map"></i> Plan du site</a>
           </li>
       </ul>
     </div>

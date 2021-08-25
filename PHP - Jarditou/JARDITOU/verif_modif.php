@@ -2,13 +2,14 @@
 
 require "connexion_bdd.php" ;
 $db = connexionBase() ;
-$wequete = "UPDATE produits SET pro_ref = :ref, pro_cat_id= :categorie, pro_libelle = :libelle, pro_description = :description, pro_prix = :prix, pro_couleur = :couleur, pro_bloque = :bloque, pro_d_modif = NOW() WHERE pro_id = :id" ;
+$wequete = "UPDATE produits SET pro_ref = :ref, pro_cat_id= :categorie, pro_libelle = :libelle, pro_description = :description, pro_stock = :stock, pro_prix = :prix, pro_couleur = :couleur, pro_bloque = :bloque, pro_d_modif = NOW() WHERE pro_id = :id" ;
 $requete = $db -> prepare($wequete) ;
 $requete->bindValue(":id", $_POST["id"]) ;
 $requete->bindValue(":ref", $_POST["ref"]) ;
 $requete->bindValue(":categorie", $_POST["categorie"]) ;
 $requete->bindValue(":libelle", $_POST["libelle"]) ;
 $requete->bindValue(":description", $_POST["description"]) ;
+$requete->bindValue(":stock", $_POST["stock"]) ;
 $requete->bindValue(":prix", $_POST["prix"]) ;
 $requete->bindValue(":couleur", $_POST["couleur"]) ;
 $requete->bindValue(":bloque", $_POST["bloque"]) ;
@@ -33,6 +34,13 @@ $erreurs = "" ;
     if (!preg_match("/^[\s\S]{0,1000}$/", $_POST["description"]))
     {
         $erreurs .= "&desc";
+        header("Location: modif.php?pro_id=" . $_POST["id"] . $erreurs) ;
+    }
+
+    //Stock
+    if (!preg_match("/^[0-9]{1,11}$/", $_POST["stock"]))
+    {
+        $erreurs .= "&estock";
         header("Location: modif.php?pro_id=" . $_POST["id"] . $erreurs) ;
     }
 

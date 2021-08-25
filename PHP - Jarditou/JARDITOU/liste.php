@@ -32,7 +32,7 @@
             <a class="nav-link text-light" href="Index.html"><i class="fas fa-home"></i> Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-light" href="liste.php"><i class="fas fa-table"></i> Tableau</a>
+        <a class="nav-link text-light" href="liste.php"><i class="fas fa-list-ul"></i> Produits</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link text-light" href="Contact.html"><i class="far fa-user-circle"></i> Contact</a>
@@ -45,9 +45,7 @@
       </div>
     </nav>
         <img class="rounded" src="jarditou_photos/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
-        <br><br>
-        <h1 class="text-light">Liste des produits</h1>
-        <br>
+
             <?php
 require "connexion_bdd.php" ;
 $db = connexionBase() ;
@@ -67,6 +65,13 @@ if ($result -> rowCount() == 0)
     die("La table est vide.") ;
 }
 ?>
+            <br><br>
+            <h1 class="text-light">Liste des produits</h1>
+            <form action="produits_ajout_script.php" method="POST">
+            <button class="btn btn-warning float-right" type="submit" name="ajout"><i class="fas fa-plus"></i> Ajout d'un produit</button>
+            </form>
+
+            <br><br>
 
             <table class="table table-striped table-hover col-12" style="background-color: #243447">
                 <thead>
@@ -87,7 +92,7 @@ if ($result -> rowCount() == 0)
                 while ($row = $result -> fetch(PDO::FETCH_OBJ))
                 {
                 echo "<tr>" ;
-                    echo '<td> <img class="img-fluid" src="jarditou_photos/' . $row -> pro_id . '.png" width="100px"> </td>';
+                    echo '<td> <img class="img-fluid" src="jarditou_photos/' . $row->pro_id . '.' . $row->pro_photo . '" width="100px"> </td>';
                     echo "<td>" . $row -> pro_id . "</td>" ;
                     echo "<td>" . $row -> pro_ref . "</td>" ;
                     echo "<td><b><a class='text-warning' href=\"detail.php?pro_id=".$row->pro_id." \" title=\"".$row->pro_libelle."\">$row->pro_libelle</a></b></td>";
@@ -108,32 +113,29 @@ if ($result -> rowCount() == 0)
 
                 echo "</table>"
             ?>
-
-            <button class="btn btn-danger" type="submit" name="ajout"><i class="fas fa-plus"></i> Ajout d'un produit</button>
-
-            <br><br>
+        </div>
+            <br>
 
 
-            <footer class="navbar navbar-expand-lg navbar-dark border-light bg-secondary rounded">
+            <footer class="navbar navbar-expand-lg navbar-dark border-light bg-light mg-5 ml-5 rounded">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-light" href="#"><i class="fas fa-list-ol"></i> Mentions légales <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-dark" href="#"><i class="fas fa-list-ol"></i> Mentions légales <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#"><i class="far fa-clock"></i> Horaires</a>
+          <a class="nav-link text-dark" href="#"><i class="far fa-clock"></i> Horaires</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" href="#"><i class="far fa-map"></i> Plan du site</a>
+            <a class="nav-link text-dark" href="#"><i class="far fa-map"></i> Plan du site</a>
           </li>
       </ul>
     </div>
 </footer>
 <br>
-    </div>
     <script src="https://kit.fontawesome.com/08f7104fd7.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/08f7104fd7.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

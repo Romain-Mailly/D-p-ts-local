@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Jarditou-Accueil</title>
 </head>
-<body style="background-color: #243447;">
+<body style="background-color: #243447;" class="text-light">
     <div class="container">
 
     <a href="Index.html" title="Accueil">
@@ -41,22 +41,35 @@
   </div>
 </nav>
 
+<?php
+$pro_id = $_GET["pro_id"] ;
+require "connexion_bdd.php" ;
+$db = connexionBase() ;
+$requete = "SELECT * FROM produits WHERE pro_id=" . $pro_id; 
+$resultat = $db -> query($requete) ;
+$produit = $resultat->fetch(PDO::FETCH_OBJ) ;
+$resultat -> closeCursor() ;
+?>
+
 <div class="shadow">
 <img src="jarditou_photos/promotion.jpg" class="rounded" alt="Promotions" title="Promotions" width="100%">
 </div>
 <br><br>
-    <div class="text-light shadow-lg p-3">
-            <p class="h2">L'entreprise</p>
-            <p>Notre entreprise familiale met tout son savoir-faire à votre disposition dans le domaine du jardin et du paysagisme.</p>
-            <p>Créée il y a 70 ans, notre entreprise vend fleurs, arbustes, matériel à main et motorisés.</p>
-            <p>Implantés à Amiens, nous intervenons dans tout le département de la Somme : Albert, Doullens, Péronne, Abbeville, Corbie</p>
-            <p class="h2">Qualité</p>
-            <p>Nous mettons à votre disposition un service personnalisé, avec 1 seul interlocuteur durant tout votre projet. Vous serez séduit par notre expértise, nos compétences et notre sérieux.</p>
-            <p class="h2">Devis gratuit</p>
-            <p>Vous pouvez bien sûr contacter pour de plus amples informations ou pour une demande d'intervention. Vous souhaitez un devis ? Nous vous le réalisons gratuitement. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores enim voluptatibus soluta perferendis soluta perferendis exercitationem eum nisi nesciunt quod quidem, facilis, sequi explicabo illo ex consequatum amet quibusdam reprehenderit assumenda modi laborum placeat ?.</p>
-        </div>
-        <br>
-        <footer class="navbar navbar-expand-lg navbar-dark border-light bg-light rounded">
+
+<form class="form-group text-center" action="delete.php?pro_id=<?php echo $pro_id ; ?>" method="POST">
+<img class="img-fluid" src="jarditou_photos/<?php echo $pro_id ; ?>.png" width="300px">
+    <h1><b><?php echo $produit -> pro_libelle ;?></b></h1>
+    <br>
+    <p>Êtes vous sûr de vouloir supprimer ce produit ?</p>
+    <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i> SUPPRIMER</button>
+    <a class="btn btn-info" href="detail.php?pro_id=<?php echo $pro_id ; ?>"><i class="fas fa-times"></i> ANNULER</a>
+</form> 
+
+</div>
+
+
+<br>
+        <footer class="navbar navbar-expand-lg navbar-dark border-light bg-light rounded fixed-bottom ml-5 mg-5">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -78,6 +91,5 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</div>
 </body>
 </html>
