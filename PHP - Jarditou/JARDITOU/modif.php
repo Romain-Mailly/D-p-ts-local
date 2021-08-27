@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0; shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Modif</title>
+  <title>Jarditou-Modif</title>
   <?php
     $pro_id = $_GET["pro_id"] ;
     require "connexion_bdd.php" ;
@@ -21,29 +21,29 @@
 <body style="background-color: #243447;" class="text-light">
   <div class="container">
 
-<a href="Index.html" title="Accueil">
+<a href="index.php" title="Accueil">
       <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210" height="70">
     </a> 
 
         <h1 class="display-5 float-right text-light">Tout le jardin</h1>
 
         <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand text-light" href="Index.html">Jarditou.com</a>
+  <a class="navbar-brand text-light" href="index.php"><span class="text-success">Jarditou</span><span class="text-danger">.com</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link text-light" href="Index.html"><i class="fas fa-home"></i> Accueil <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
+        <li class="nav-item">
+        <a class="nav-link text-light" href="index.php"><i class="fas fa-home"></i> Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link text-light" href="liste.php"><i class="fas fa-list-ul"></i> Produits</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link text-light" href="Contact.html"><i class="far fa-user-circle"></i> Contact</a>
-          </li>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link text-light" href="contact.php"><i class="far fa-user-circle"></i> Contact</a>
+      </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Votre promotion" aria-label="Search">
@@ -54,9 +54,21 @@
 
 <img src="jarditou_photos/promotion.jpg" class="rounded" alt="Promotions" title="Promotions" width="100%">
 
+<br><br>
 
 
-  <form action="verif_modif.php" method="post">
+  <form action="verif_modif.php" method="POST" enctype="multipart/form-data">
+
+    <!-- Photo -->
+    <img src="jarditou_photos/<?php echo "$produit->pro_id.$produit->pro_photo" ; ?>" width="100px" class="img-fluid rounded mx-auto d-block col-3" alt="<?php echo $produit->pro_libelle; ?>" title="<?php echo $produit->pro_libelle; ?>">
+     <div class="form-group">
+        <label for="photo">Photo</label><br>
+        <input type="file" <?php if (isset($_GET['ephoto'])) { echo 'class="border border-danger"'; } ?> id="photo" name="photo"><br>
+        <?php
+        if (isset($_GET['ephoto'])) { echo '<i class="fas fa-exclamation-circle text-danger"> Le format de l\'image doit être en .jpg, .jpeg ou .png.</i>'; }
+        ?>
+        <input type="hidden" id="oldext" name="oldext" value="<?php echo $produit->pro_photo; ?>">
+    </div>
 
     <!-- ID -->
 

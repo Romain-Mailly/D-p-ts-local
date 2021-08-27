@@ -5,33 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Jarditou-Accueil</title>
+    <title>Jarditou-Suppression</title>
 </head>
 <body style="background-color: #243447;" class="text-light">
     <div class="container">
 
-    <a href="Index.html" title="Accueil">
+    <a href="index.php" title="Accueil">
       <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210" height="70">
     </a>  
 
 <h1 class="display-5 float-right text-light">Tout le jardin</h1>
 
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand text-light" href="Index.html">Jarditou.com</a>
+  <a class="navbar-brand text-light" href="index.php"><span class="text-success">Jarditou</span><span class="text-danger">.com</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link text-light" href="Index.html"><i class="fas fa-home"></i> Accueil <span class="sr-only">(current)</span></a>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="index.php"><i class="fas fa-home"></i> Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link text-light" href="liste.php"><i class="fas fa-list-ul"></i> Produits</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link text-light" href="Contact.html"><i class="far fa-user-circle"></i> Contact</a>
+        <a class="nav-link text-light" href="contact.php"><i class="far fa-user-circle"></i> Contact</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -57,7 +57,7 @@ $resultat -> closeCursor() ;
 <br><br>
 
 <form class="form-group text-center" action="delete.php?pro_id=<?php echo $pro_id ; ?>" method="POST">
-<img class="img-fluid" src="jarditou_photos/<?php echo $pro_id ; ?>.png" width="300px">
+<img src="jarditou_photos/<?php echo "$produit->pro_id.$produit->pro_photo" ; ?>" width="300px" class="img-fluid rounded mx-auto d-block col-3" alt="<?php echo $produit->pro_libelle; ?>" title="<?php echo $produit->pro_libelle; ?>">
     <h1><b><?php echo $produit -> pro_libelle ;?></b></h1>
     <br>
     <p>Êtes vous sûr de vouloir supprimer ce produit ?</p>
@@ -65,11 +65,11 @@ $resultat -> closeCursor() ;
     <a class="btn btn-info" href="detail.php?pro_id=<?php echo $pro_id ; ?>"><i class="fas fa-times"></i> ANNULER</a>
 </form> 
 
-</div>
+
 
 
 <br>
-        <footer class="navbar navbar-expand-lg navbar-dark border-light bg-light rounded fixed-bottom ml-5 mg-5">
+        <footer class="navbar navbar-expand-lg navbar-dark border-light bg-light rounded ml-5 mr-5">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -87,6 +87,8 @@ $resultat -> closeCursor() ;
             </ul>
           </div>
       </footer>
+    
+    </div>
 <script src="https://kit.fontawesome.com/08f7104fd7.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

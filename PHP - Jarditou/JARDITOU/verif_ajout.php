@@ -14,7 +14,7 @@ $requete->bindValue(":prix", $_POST["prix"]) ;
 $requete->bindValue(":stock", $_POST["stock"]) ;
 $requete->bindValue(":couleur", $_POST["couleur"]) ;
 $requete->bindValue(":bloque", $_POST["bloque"]) ;
-$requete->bindValue(":photo", $extension["photo"]) ;
+$requete->bindValue(":photo", $extension) ;
 
 $erreurs = "" ;
 
@@ -89,17 +89,12 @@ else
         $requete -> execute() ;
         $requete -> closeCursor() ;
         $requete = $db->prepare('SELECT pro_id FROM produits WHERE pro_ref = ?');            
-        $requete->bindValue(1, $_POST['reference']);            
+        $requete->bindValue(1, $_POST['ref']);            
         $requete->execute();         
         $resultat = $requete->fetch(PDO::FETCH_OBJ);            
-        $requete->closeCursor();
-
-       echo $resultat->pro_id;
-       echo $resultat->pro_id;
-        $path = dirname(__DIR__). DIRECTORY_SEPARATOR . "JARDITOU".DIRECTORY_SEPARATOR."jarditou_photos". DIRECTORY_SEPARATOR . "$resultat->pro_id.$extension";   
-        echo $path;  
-        die;
-        move_uploaded_file($_FILES['photo']['tmp_name'], "jarditou_photos/$resultat->pro_id.$extension"); 
+        $requete->closeCursor();  
+                     
+        move_uploaded_file($_FILES['photo']['tmp_name'], "jarditou_photos/$resultat->pro_id.$extension");
         header("Location: liste.php") ;
         exit ;
     }
