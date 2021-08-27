@@ -8,6 +8,7 @@
     <title>Jarditou-Contact</title>
 </head>
 <body style="background-color: #243447;" class="text-white">
+
     <div class="container">
 
       <a href="index.php" title="Accueil">

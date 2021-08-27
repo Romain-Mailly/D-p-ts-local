@@ -46,10 +46,8 @@
     </nav>
         <img class="rounded" src="jarditou_photos/promotion.jpg" alt="Promotions" title="Promotions" width="100%">
 
-            <?php
-session_start();
-$_SESSION["login"] = "root" ;
-echo $_SESSION["login"] ;
+
+<?php
 require "connexion_bdd.php" ;
 $db = connexionBase() ;
 $requete = "SELECT pro_photo, pro_id, pro_ref, pro_libelle, pro_prix, pro_stock, pro_couleur, pro_d_ajout, pro_d_modif, pro_bloque FROM produits ORDER BY pro_id ASC" ;
