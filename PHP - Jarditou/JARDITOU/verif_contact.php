@@ -1,8 +1,6 @@
 <?php
 $erreurs = "" ;
 
-
-
         //NOM
     if (!preg_match("/^[a-zA-Zéèê]{1,30}$/", $_POST["nom"]))
     {
