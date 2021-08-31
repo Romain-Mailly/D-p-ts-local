@@ -12,11 +12,16 @@
     <br> <br>
 <h1 class="text-success">Bravo espèce de gros beau gosse tu sais rentrer un mail et un mdp je suis fier de toi !<i class="bi bi-check2"></i></h1>
 <br><br>
-<?php session_start() ?>
-<?php echo $_SESSION["login"] ; ?>
-<br>
-<?php echo $_SESSION["role"] ; ?>
+
+<?php 
+session_start() ;
+echo $_SESSION["login"] . "<br>" ;
+$mdp = password_hash($_SESSION["mdp"], PASSWORD_DEFAULT) ;
+echo $mdp . "<br>" ; 
+?>
+
 <br><br>
+
 <form action="session.php" method="POST">
 
     <input type="submit" class="btn btn-success" value="Retour">

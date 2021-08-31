@@ -15,7 +15,8 @@
 
 <br><br>
 
-
+  <h1>Modification du produit</h1>
+  <hr class="bg-light">
   <form action="verif_modif.php" method="POST" enctype="multipart/form-data">
 
     <!-- Photo -->

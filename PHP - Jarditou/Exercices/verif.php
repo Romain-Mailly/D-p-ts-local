@@ -1,14 +1,15 @@
 <?php
+session_start() ;
 
 $erreurs = "" ;
 
-if (!preg_match("/^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/", $_POST["login"]) || is_null($_POST["login"]))
+if (!preg_match("/^[\s\S]{1,30}$/", $_POST["login"]))
 {
-    $erreurs .= "&elogin" ;
+    $erreurs .= "&elog" ;
     header ("Location: session.php?" . $erreurs) ;
 }
 
-if (!preg_match("/^[a-zA-Z0-9]{1,30}$/", $_POST["mdp"]))
+if (!preg_match("/^[\s\S]{1,60}$/", $_POST["mdp"]))
 {
     $erreurs .= "&emdp" ;
     header ("Location: session.php?" . $erreurs) ;
@@ -24,9 +25,11 @@ if ($erreurs != NULL)
 
 else
 {
-    session_start() ;
     $_SESSION["login"] = $_POST["login"] ;
-    $_SESSION["role"] = "admin" ;
+    $_SESSION["mdp"] = $_POST["mdp"] ;            
+    $requete->execute();         
+    $resultat = $requete->fetch(PDO::FETCH_OBJ);            
+    $requete->closeCursor();  
     header ("Location: menu.php") ;
     exit ;
 }

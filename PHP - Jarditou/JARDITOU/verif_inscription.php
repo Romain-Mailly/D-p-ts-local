@@ -1,6 +1,16 @@
-
 <?php 
-var_dump($_POST);
+session_start();
+require "connexion_bdd.php" ;
+$db = connexionBase() ;
+$wequete = "INSERT INTO users (user_nom, user_prenom, user_email, user_login, user_mdp, user_d_create)
+            VALUES (:nom, :prenom, :mail, :login, :mdp, NOW())" ;
+$requete = $db ->prepare($wequete) ;
+$requete -> bindValue(":nom", $_POST["nom"]) ;
+$requete -> bindValue(":prenom", $_POST["prenom"]) ;
+$requete -> bindValue(":login", $_POST["login"]) ;
+$requete -> bindValue(":mail", $_POST["mail"]) ;
+$mdp = password_hash($_POST["mdp"], PASSWORD_DEFAULT) ;
+$requete -> bindValue(":mdp", $mdp) ;
 
 
 $erreurs = "" ;
@@ -42,7 +52,12 @@ if (!preg_match("/^[\s\S]{1,60}$/", $_POST["mdp"]))
 
 else
 {
+    $_SESSION["login"] = $_POST["login"] ;
+    $_SESSION["mdp"] = $_POST["mdp"] ;            
+    $requete->execute();         
+    $resultat = $requete->fetch(PDO::FETCH_OBJ);            
+    $requete->closeCursor();
     header ("Location: index.php") ;
-    die ;
-} 
+    exit ;
+}
 ?> 

@@ -14,22 +14,40 @@
         <?php if (isset($_GET["eerreur"])) {echo '<h6 class="text-danger">La connexion a échoué.</h6>' ; } ?>
         <br>
         <form action="verif.php" method="POST">
-            <div class="form-group">
-            <label for="login">Login :</label>
-            <input class="form-control <?php if (isset($_GET["elogin"])) { echo 'border border-danger' ;} ?>" type="text" name="login" id="login">
-            <?php if (isset($_GET["elogin"])) {echo "<i>Veuillez saisir un email valide.</i>" ; } ?>
-            </div>
-        <br>            
-            <div class="form-group">
-                <label for="mdp">Mot de passe :</label>
-                <input class="form-control <?php if (isset($_GET["emdp"])) {echo 'border border-danger' ; } ?>" type="text" name="mdp" id="mdp">
-                <?php if (isset($_GET["emdp"])) {echo "<i>Veuillez saisir un mot de passe correct !</i>" ; } ?>
-            </div>
-        <br>
-            <div class="form-group">
-                <input type="submit" class="btn btn-dark" value="Envoyer"> 
-             </div>
-        </form>
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control <?php if (isset($_GET["enom"])) {echo "border border-danger";}?>" name="nom" id="nom" type="text" placeholder="Loper">
+        <?php if (isset($_GET["enom"])) {echo "Veuillez saisir un nom valide.";}?>
+    </div>
+
+    <div class="form-group">
+        <label for="prenom">Prénom :</label>
+        <input class="form-control <?php if (isset($_GET["epre"])) {echo "border border-danger";}?>" name="prenom" id="prenom" type="text" placeholder="Dave">
+        <?php if (isset($_GET["epre"])) {echo "Veuillez saisir un prénom valide.";}?>
+    </div>
+
+    <div class="form-group">
+        <label for="login">Login :</label>
+        <input class="form-control <?php if (isset($_GET["elog"])) {echo "border border-danger";}?>" name="login" id="login" type="text" placeholder="Dave_Loper">
+        <?php if (isset($_GET["elog"])) {echo "Veuillez saisir un login valide.";}?>
+    </div>
+
+    <div class="form-group">
+        <label for="mail">Email :</label>
+        <input class="form-control <?php if (isset($_GET["email"])) {echo "border border-danger";}?>" name="mail" id="mail" type="email" placeholder="dave.loper@afpa.fr">
+        <?php if (isset($_GET["email"])) {echo "Veuillez saisir un email valide.";}?>
+    </div>
+
+    <div class="form-group">
+        <label for="mdp">Mot de passe :</label>
+        <input class="form-control <?php if (isset($_GET["emdp"])) {echo "border border-danger";}?>" name="mdp" id="mdp" type="password" placeholder="Password123!">
+        <?php if (isset($_GET["emdp"])) {echo "Veuillez saisir un mot de passe valide.";}?>
+    </div>
+    
+    <br>
+
+    <button type="submit" class="btn btn-success"><i class="fas fa-share"></i> Enregistrer</button>
+</form>
     </div>
 
 

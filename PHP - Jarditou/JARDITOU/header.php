@@ -1,5 +1,6 @@
+<?php session_start() ; ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="mt-3">
 <?php
 $title ;
 $nav ;
@@ -18,7 +19,7 @@ $nav ;
 
 
     <a href="index.php" title="Accueil">
-      <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210" height="70">
+      <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210" height="65">
     </a> 
 
         <h3 class="display-5 float-right text-light mt-3"><i class="fas fa-seedling"></i> Tout le jardin <i class="fas fa-seedling"></i></h3>
@@ -41,19 +42,25 @@ $nav ;
         <a class="nav-link text-light" href="contact.php"><i class="far fa-user-circle"></i> Contact</a>
       </li>
         </ul>
+        <?php if (isset($_SESSION["login"])) : ?>
+           
+           <a class="btn btn-success mr-1" href="profil.php"><i class="fas fa-portrait"></i> Profil</a>
+           <a class="btn btn-danger ml-1" href="deconnexion.php"><i class="fas fa-sign-out-alt"></i> Deconnexion</a>
+           
+           <?php else : ?>
         <div class="dropdown">
   <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <i class="far fa-user-circle"></i> Se connecter 
   </button>
   <div class="dropdown-menu" style="background-color : #243447 ;">
-  <form class="px-4 py-3">
+  <form class="px-4 py-3 " action="verif_connexion.php" method="POST">
     <div class="form-group">
-      <label for="exampleDropdownFormEmail1" class="text-light">Adresse mail</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="daveloper@afpa.fr">
+      <label for="login" class="text-light">Login</label>
+      <input type="text" class="form-control" id="login" name="login" placeholder="Dave_Loper">
     </div>
     <div class="form-group">
-      <label for="exampleDropdownFormPassword1" class="text-light">Mot de passe</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+      <label for="mdp" class="text-light">Mot de passe</label>
+      <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Password">
     </div>
     <div class="form-group">
       <div class="form-check">
@@ -63,13 +70,14 @@ $nav ;
         </label>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary text-light">Se connecter</button>
+    <button type="submit" name="submit" class="btn btn-primary text-light">Se connecter</button>
   </form>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item text-light" href="inscription.php">Nouveau ? <u><b>Inscris toi !</b></u></a>
-  <a class="dropdown-item text-light" href="#">Mot de passe oublié ?</a>
+  <a class="dropdown-item text-light" href="mdpforgot.php">Mot de passe oublié ?</a>
 </div>
 </div>
+            <?php endif ; ?>
       </div>
     </nav>
         <img class="rounded" src="jarditou_photos/promotion.jpg" alt="Promotions" title="Promotions" width="100%">

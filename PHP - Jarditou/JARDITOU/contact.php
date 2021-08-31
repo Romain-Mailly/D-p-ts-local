@@ -2,11 +2,12 @@
 $title = 'Jarditou | Contact' ;
 require "header.php" ;
 ?>
-  
+    <br><br>
     <form action="verif_contact.php" method="POST">
     <p class="text-light">* Ces zones sont obligatoires </p>
     <br>
         <legend><p class="h3 text-light">Vos coordonnées</p></legend>
+            <hr class="bg-light">
 
         <div class="form-group">
             <label class="text-light" for="nom">Votre nom* :</label>

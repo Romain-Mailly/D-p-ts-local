@@ -7,7 +7,8 @@
     $categorie -> execute() ;
 ?>
     <br><br>
-
+    <h1>Ajout d'un produit</h1>
+    <hr class="bg-light">
     <form class="form-group" action="verif_ajout.php" method="POST" enctype="multipart/form-data">
 
 
