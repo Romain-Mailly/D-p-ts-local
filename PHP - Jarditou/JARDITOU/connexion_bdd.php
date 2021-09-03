@@ -1,3 +1,4 @@
+<!-- Fonction qui permet de relier le script à la DB -->
 <?php
 function connexionBase()
 {

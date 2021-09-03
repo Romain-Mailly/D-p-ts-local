@@ -12,18 +12,22 @@ $nav ;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title><?php echo $title ;?></title>
+    <link rel="icon" type="image/png" sizes="16x16" href="jarditou_photos/grooot.png">
+
 </head>
 
 <body style="background-color: #243447;" class="text-white">
     <div class="container">
 
-
+<!-- LOGO JARDITOU -->
     <a href="index.php" title="Accueil">
       <img src="jarditou_photos/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="210" height="65">
     </a> 
+      
+        <h3 class="display-5 float-right text-light d-xs-none d-none d-lg-block d-xl-block mt-3"><i class="fas fa-seedling"></i> Tout le jardin <i class="fas fa-seedling"></i></h3>
 
-        <h3 class="display-5 float-right text-light mt-3"><i class="fas fa-seedling"></i> Tout le jardin <i class="fas fa-seedling"></i></h3>
 
+<!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand text-light" href="index.php"><span class="text-success">Jarditou</span><span class="text-danger">.com</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -41,6 +45,12 @@ $nav ;
       <li class="nav-item">
         <a class="nav-link text-light" href="contact.php"><i class="far fa-user-circle"></i> Contact</a>
       </li>
+      <!-- Bouton "admin" qui apparaît seulement le "chef"(moi) -->
+      <?php if (isset($_SESSION["role"]) && ($_SESSION["role"] == "chef")) : ?>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="admin.php"><i class="far fa-user-circle"></i> Admin</a>
+      </li>
+      <?php endif ; ?>
         </ul>
         <?php if (isset($_SESSION["login"])) : ?>
            
@@ -56,25 +66,19 @@ $nav ;
   <form class="px-4 py-3 " action="verif_connexion.php" method="POST">
     <div class="form-group">
       <label for="login" class="text-light">Login</label>
-      <input type="text" class="form-control" id="login" name="login" placeholder="Dave_Loper">
+      <input type="text" class="form-control" id="login" name="login" placeholder="User_name">
     </div>
     <div class="form-group">
       <label for="mdp" class="text-light">Mot de passe</label>
       <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Password">
+      <?php if (isset($_GET['emdp'])) {echo '<br><b><center><span class="text-light">Login ou Mot de passe erroné</span></center></b>' ; } ?>
     </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="dropdownCheck">
-        <label class="form-check-label text-light" for="dropdownCheck">
-          Se souvenir de moi
-        </label>
-      </div>
-    </div>
+
     <button type="submit" name="submit" class="btn btn-primary text-light">Se connecter</button>
   </form>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item text-light" href="inscription.php">Nouveau ? <u><b>Inscris toi !</b></u></a>
-  <a class="dropdown-item text-light" href="mdpforgot.php">Mot de passe oublié ?</a>
+  <a class="dropdown-item text-light" style="background-color :#243447 ;" href="inscription.php">Nouveau ? <u><b>Inscris toi !</b></u></a>
+  <a class="dropdown-item text-light" style="background-color :#243447 ;" href="mdpforget.php">Mot de passe oublié ?</a>
 </div>
 </div>
             <?php endif ; ?>

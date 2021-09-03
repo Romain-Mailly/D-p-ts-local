@@ -44,7 +44,7 @@ require "header.php" ;
         <input class="form-control <?php if (isset($_GET["emdp"])) {echo "border border-danger";}?>" name="mdp" id="mdp" type="password" placeholder="Password123!">
         <?php if (isset($_GET["emdp"])) {echo "Veuillez saisir un mot de passe valide.";}?>
     </div>
-    
+
     <br>
 
     <button type="submit" class="btn btn-success"><i class="fas fa-share"></i> Enregistrer</button>

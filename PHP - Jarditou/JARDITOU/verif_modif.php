@@ -1,5 +1,5 @@
+<!-- Appel des pages nécéssaires, connexion à la DB et création des requête -->
 <?php
-
 require "connexion_bdd.php" ;
 $db = connexionBase() ;
 $extension = substr(strrchr($_FILES["photo"]["name"], "."), 1);
@@ -19,7 +19,7 @@ $requete->bindValue(":bloque", $_POST["bloque"]) ;
 $requete->bindValue(":photo", $extension) ;
 $erreurs = "" ;
 
-
+// Script nécessaire pour modifier les photos
     $aMimeTypes = array('image/jpg', 'image/jpeg', 'image/png');            
     $finfo = finfo_open(FILEINFO_MIME_TYPE);            
     $mimeType = finfo_file($finfo, $_FILES['photo']['tmp_name']);           
@@ -82,12 +82,13 @@ $erreurs = "" ;
 
     else
     {
-
+        //Quand il n'y a aucune erreur :
         $requete -> execute() ;
         $requete -> closeCursor() ;
         unlink("jarditou_photos/$pro_id.$oldext") ;
         move_uploaded_file($_FILES['photo']['tmp_name'], "jarditou_photos/$pro_id.$extension");
-
+        
+        //Redirection
         header("Location: liste.php") ;
         exit ;
     }

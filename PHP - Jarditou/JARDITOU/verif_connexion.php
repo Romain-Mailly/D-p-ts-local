@@ -1,5 +1,6 @@
 <?php 
 session_start() ;
+$erreur = "" ;
 
 if (isset($_POST["submit"]))
 {
@@ -13,26 +14,31 @@ if (isset($_POST["submit"]))
     $result =$db->prepare($requete) ;
     $result->execute() ;
 
+    
+
     if ($result->rowCount() > 0)
     {
+        
         $data = $result->fetchAll() ;
         if (password_verify($mdp, $data[0]["user_mdp"]))
         {
             $_SESSION["login"] = $login ;
-            $_SESSION["role"] = "admin" ;
+            $result->execute() ;
+            $users = $result->fetch(PDO::FETCH_OBJ) ;
+            $_SESSION["role"] = $users->user_role ;
             header ("Location: index.php") ;
             exit ;
         }
         else
         {
-            header ("Location: inscription.php") ;
-            exit ;
+            $erreur .= "&emdp" ;
+            header ("Location: index.php?$erreur") ;
         }
     }
     else
     {
-        header ("Location: inscription.php") ;
-        exit ;
+        $erreur .= "&emdp" ;
+            header ("Location: index.php?$erreur") ;
     }
 }
 ?>

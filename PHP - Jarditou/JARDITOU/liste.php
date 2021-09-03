@@ -22,10 +22,12 @@ if ($result -> rowCount() == 0)
             <br><br>
             <h1 class="text-light">Liste des produits</h1>
             <hr class="bg-light">
+
+            <?php if (isset($_SESSION["role"]) && ($_SESSION["role"] == "admin" || $_SESSION["role"] == "chef")) : ?>
             <form action="produits_ajout_script.php" method="POST">
-            
             <button class="btn btn-warning float-right" type="submit" name="ajout"><i class="fas fa-plus"></i> Ajout d'un produit</button>
             </form>
+            <?php endif ; ?>
 
             <br><br>
 
@@ -51,7 +53,14 @@ if ($result -> rowCount() == 0)
                     echo '<td> <img class="img-fluid" src="jarditou_photos/' . $row->pro_id . '.' . $row->pro_photo . '" width="100px"> </td>';
                     echo "<td>" . $row -> pro_id . "</td>" ;
                     echo "<td>" . $row -> pro_ref . "</td>" ;
+                    if (isset($_SESSION["role"]) && ($_SESSION["role"] == "admin" || $_SESSION["role"] == "chef"))
+                    {
                     echo "<td><b><a class='text-warning' href=\"detail.php?pro_id=".$row->pro_id." \" title=\"".$row->pro_libelle."\">$row->pro_libelle</a></b></td>";
+                    }
+                    else
+                    {
+                        echo "<td>" . $row -> pro_libelle . "</td>" ;
+                    }
                     echo "<td>" . $row -> pro_prix . "€ </td>" ;
                     echo "<td>" . $row -> pro_stock . "</td>" ;
                     echo "<td>" . $row -> pro_couleur . "</td>" ;

@@ -1,3 +1,4 @@
+<!-- Appel des pages nécéssaires, connexion à la DB et création de la requête quand on a confirmé de vouloir supprimer un produit -->
 <?php
         $pro_id = $_GET["pro_id"] ;
         require "connexion_bdd.php" ;

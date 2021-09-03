@@ -1,3 +1,4 @@
+ <!-- Appel des pages nécéssaires, connexion à la DB et création de la requête pour afficher de détail des produits -->
  <?php
     $title = 'Jarditou | Details' ;
     require "header.php" ;
@@ -92,24 +93,16 @@
 
       <!-- Bloque -->
 
-      <?php
-      if ($produit -> pro_bloque == 1)
-      {
-        echo '
+      <?php if ($produit -> pro_bloque == 1) :?>
         <label class="text-light" for="bloque">Produit bloqué : </label>
         <input type="radio" name="bloque" value="1" disabled checked > <span class="text-light">Oui</span>    
         <input type="radio" name="bloque" value="0" disabled > <span class="text-light">Non</span> <br>
-        ' ;
-      }
-      else
-      {
-        echo '
+    
+      <?php else : ?>
         <label class="text-light" for="bloque">Produit bloqué : </label>
         <input type="radio" name="bloque" value="1" disabled > <span class="text-light">Oui</span>    
         <input type="radio" name="bloque" value="0" disabled checked > <span class="text-light">Non</span> <br>
-        ' ;
-      }
-    ?>
+      <?php endif ; ?>
 
       <!-- Date d'ajout -->
 
@@ -130,14 +123,17 @@
 
     ?>
     
-    
+    <!-- Bouton qui ramène à la liste des produits -->
     <a class="btn btn-info" href="liste.php?pro_id=<?php echo $pro_id ; ?>"><i class="fas fa-list-ul"></i> Retour sur la liste</a>
 
+    <!-- Bouton qui permet de modifier les produits -->
       <div class="float-right">
         <button type="submit" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Modifier</button>
         <a href="confirmation_delete.php?pro_id=<?php echo $produit->pro_id ; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</a><br>
       </div>  
+
       <br><br>
+      
     </form>
     
     <br>

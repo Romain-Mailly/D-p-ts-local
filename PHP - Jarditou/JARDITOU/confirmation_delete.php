@@ -1,3 +1,4 @@
+<!-- Appel des pages nécéssaires, connexion à la DB et création de la requête -->
 <?php
 $title = 'Jarditou | Confirmation' ;
 require "header.php" ;
@@ -12,6 +13,7 @@ $resultat -> closeCursor() ;
 
 <br><br>
 
+<!-- Formulaire de confirmation savoir si on est sur de vouloir supprimer le produit ou non -->
 <form class="form-group text-center" action="delete.php?pro_id=<?php echo $pro_id ; ?>" method="POST">
 <img src="jarditou_photos/<?php echo "$produit->pro_id.$produit->pro_photo" ; ?>" width="300px" class="img-fluid rounded mx-auto d-block col-3" alt="<?php echo $produit->pro_libelle; ?>" title="<?php echo $produit->pro_libelle; ?>">
     <h1><b><?php echo $produit -> pro_libelle ;?></b></h1>
