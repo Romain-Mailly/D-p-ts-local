@@ -50,6 +50,7 @@ if ($result -> rowCount() == 0)
                     echo "<td><a class='text-warning' href='modif_admin.php?user_id=" . $row -> user_id . "'>" . $row -> user_login . "</td>" ;
                     echo "<td>" . $row -> user_d_create . "</td>" ;
                     echo "<td>" . $row -> user_d_last . "</td>" ;
+                    echo "<td>" . $row -> user_role . "</td>" ;
                 }
         ?>
     </tr>

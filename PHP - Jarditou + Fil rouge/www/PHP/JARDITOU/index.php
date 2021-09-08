@@ -3,9 +3,6 @@ $title = 'Jarditou | Accueil' ;
 require "header.php" ;
 ?>
 <br><br>
-    <?php if (isset($_SESSION ["login"]))echo $_SESSION["login"] ; ?>
-    <br>
-    <?php if (isset($_SESSION ["role"]))echo $_SESSION["role"] ; ?>
     <div class="text-light shadow-lg p-3">
             <p class="h2">L'entreprise</p>
             <hr class="bg-light">

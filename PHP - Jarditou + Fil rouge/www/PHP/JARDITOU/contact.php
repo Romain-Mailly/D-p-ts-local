@@ -71,6 +71,7 @@ require "header.php" ;
 
 
         <legend><p class="h3 text-light">Votre demande</p></legend>
+            <hr class="bg-light">
 
         <!-- SUJET -->
         <div class="form-group">

@@ -12,6 +12,7 @@ $nav ;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title><?php echo $title ;?></title>
+    <!-- Petite icône à côté du titre dans l'onglet -->
     <link rel="icon" type="image/png" sizes="16x16" href="jarditou_photos/grooot.png">
 
 </head>
