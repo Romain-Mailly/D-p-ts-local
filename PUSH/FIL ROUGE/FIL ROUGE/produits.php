@@ -16,7 +16,8 @@ $result->execute() ;
 
 
 ?>
-<div class="dropdown">
+<div class="d-flex">
+<div class="dropdown col-10">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     Dropdown button
   </button>
@@ -28,10 +29,16 @@ $result->execute() ;
     <li><a class="dropdown-item" href="skewb.php">Skewb</a></li>
     <li><a class="dropdown-item" href="pyraminx.php">Pyraminx</a></li>
     <li><a class="dropdown-item" href="megaminx.php">Megaminx</a></li>
+    <li><a class="dropdown-item" href="autres.php">Autres</a></li>
   </ul>
 </div>
-
+<div class="float col-2">
+<a class="btn btn-warning justify-content-end" href="ajout.php">Ajout d'un produit</a>
+</div>
+</div>
 <br><br>
+
+<!-- Lien qui envoi sur les cubes de chaques catégories -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -47,7 +54,7 @@ $result->execute() ;
           <a class="nav-link active" aria-current="page" href="3x3.php">3x3</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="=4x4.php">4x4</a>
+          <a class="nav-link active" aria-current="page" href="4x4.php">4x4</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="5x5.php">5x5</a>
@@ -67,6 +74,7 @@ $result->execute() ;
 </nav>
 
 
+<!-- Lien qui envoi sur les cubes de chaques marques -->
 
 <a href="gan.php">
     <img src="photos_cube/gan.png">

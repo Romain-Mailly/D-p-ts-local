@@ -17,56 +17,72 @@
 </head>
 
 <body>
-    
+
     <div class="container">
 
-    <!-- Bannière du site -->
-    <img src="photos_cube/banniere.jpg" width="100%" title="Bannière Cubin'Shop" alt="Bannière Cubin'Shop">
+        <!-- Bannière du site -->
+        <img src="photos_cube/banniere.jpg" width="100%" title="Bannière Cubin'Shop" alt="Bannière Cubin'Shop">
 
-    <!-- Début de Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Cubin'Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <!-- Bouton ACCUEIL -->
-                        <a class="nav-link" aria-current="page" href="index.php">Accueil</a>
-                    </li>
-                    <!-- Bouton PRODUITS -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="produits.php">Produits</a>
-                    </li>
-                    <!-- Bouton CONTACT -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
-                    </li>
-                   
-                </ul>
+        <!-- Début de Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">Cubin'Shop</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <!-- Bouton ACCUEIL -->
+                            <a class="nav-link" aria-current="page" href="index.php">Accueil</a>
+                        </li>
+                        <!-- Bouton PRODUITS -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="produits.php">Produits</a>
+                        </li>
+                        <!-- Bouton CONTACT -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.php">Contact</a>
+                        </li>
+                        <!-- Bouton "admin" qui apparaît seulement le "chef"(moi) -->
+                        <?php if (isset($_SESSION["role"]) && ($_SESSION["role"] == "chef")) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.php"><i class="far fa-user-circle"></i> Admin</a>
+                        </li>
+                        <?php endif ; ?>
 
-                 <!-- Dropdown de CONNEXION -->
-                
-            </div>
-            <div class="dropdown me-5">
+                    </ul>
+                </div>
+
+
+                <?php if (isset($_SESSION["login"])) : ?>
+
+                <a class="btn btn-success me-1" href="profil.php">Profil</a>
+                <a class="btn btn-danger ms-1" href="deconnexion.php">Deconnexion</a>
+
+                <?php else : ?>
+                <!-- Dropdown de CONNEXION -->
+
+
+                <div class="dropdown me-5">
                     <button class="btn btn-success dropdown-toggle" type="button" id="dropdownAccount"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i> Mon compte
+                        <i class="bi bi-person-circle"></i> Se connecter
                     </button>
                     <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownAccount">
-                        <form class="px-4 py-3" action="#" method="POST">
+                        <form class="px-4 py-3" action="connexion.php" method="POST">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control " id="accountEmail" name="accountEmail"
+                                <input type="email" class="form-control " id="login" name="login"
                                     placeholder="dave.loper@jarditou.com">
-                                <label for="dropdownEmail" class="form-label"><i class="bi bi-envelope"></i> Login </label>
+                                <label for="login" class="form-label">Login
+                                </label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="accountPassword" name="accountPassword"
+                                <input type="password" class="form-control" id="mdp" name="mdp"
                                     placeholder="Mot de passe">
-                                <label for="dropdownPassword" class="form-label"><i class="bi bi-key"></i> Mot de
+                                <label for="mdp" class="form-label">Mot de
                                     passe</label>
                             </div>
                             <div class="mb-3">
@@ -78,18 +94,17 @@
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success"><i class="bi bi-door-open"></i>
-                                Connexion</button>
+                            <button type="submit" class="btn btn-success">Connexion</button>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="bi bi-person-plus"></i> Je souhaite me créer un
-                            compte</a>
-                        <a class="dropdown-item" href="#"><i class="bi bi-question-circle"></i> J'ai oublié mon mot de
-                            passe</a>
+                        <a class="dropdown-item" href="inscription.php"><i class="bi bi-person-plus"></i> Nouveau ?
+                            Inscris-toi !</a>
+                        <a class="dropdown-item" href="#"><i class="bi bi-question-circle"></i> Mot de passe oublié</a>
                     </ul>
                 </div>
-        </div>
-    </nav>
-    <!-- Fin de Navbar -->
+                <?php endif ; ?>
+            </div>
+        </nav>
+        <!-- Fin de Navbar -->
 
-    <br><br>
+        <br><br>

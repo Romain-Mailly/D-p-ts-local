@@ -11,8 +11,8 @@ echo $date2->format('W') . "<br> <br>";
 //Ex 3
 $date3 = new DateTime('02/11/2022') ;
 $date1 = new DateTime() ;
-$vincentetremipourlavie = $date1 -> diff($date3) ;
-echo $vincentetremipourlavie -> format('%a') . "<br> <br>";
+$diff = $date1 -> diff($date3) ;
+echo $diff -> format('%a') . "<br> <br>";
 
 //Ex 4
 $time = time() ;

@@ -15,7 +15,7 @@ $produits = $result -> fetch(PDO::FETCH_OBJ) ;
     <h3><?php echo $produits->pro_libelle ; ?></h3>
 <br><br>    
 <i><h5>Êtes-vous sur de vouloir supprimer ce produit ?</h5></i>
-<form action="delete.php" method="POST">
+<form action="delete.php?pro_id=<?php echo $pro_id ; ?>" method="POST">
     <button type="submit" class="btn btn-success">Oui</button>
     <a class="btn btn-danger" href="details.php?pro_id=<?php echo $pro_id ; ?>">Non</a>
 </form>

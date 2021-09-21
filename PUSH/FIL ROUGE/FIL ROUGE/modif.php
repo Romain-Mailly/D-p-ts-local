@@ -69,7 +69,7 @@ $produits = $result -> fetch(PDO::FETCH_OBJ) ;
 
     <!-- Buttons -->
     <button type="submit" class="btn btn-primary">Enregistrer</button>
-    <a class="btn btn-danger" href="liste.php">Annuler</a>
+    <a class="btn btn-danger" href="produits.php">Annuler</a>
 </form>
 
 

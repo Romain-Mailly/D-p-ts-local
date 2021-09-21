@@ -6,7 +6,6 @@ $db = connexionBase() ;
 $requete = "SELECT * FROM produits WHERE pro_cat_id = 4 " ;
 $result = $db -> prepare($requete) ;
 $result -> execute() ;
-$produit = $result -> fetch(PDO::FETCH_OBJ) ;
 ?>
 
 <!-- Création des cards où sont affiché les produits -->
@@ -26,9 +25,9 @@ $produit = $result -> fetch(PDO::FETCH_OBJ) ;
           <li class="list-group-item"><?php echo $products->pro_ref ; ?></li>
           <li class="list-group-item">Je sais pas encore zebi</li>
         </ul>
-        <div class="card-body d-flex">
-          <a href="#" class="btn btn-primary">Ajouter au panier</a>
-          <a href="gan.php" class="btn btn-warning">Details du produit</a>
+        <div class="card-body d-flex mx-auto">
+          <a href="#" class="btn btn-primary"><i class="bi bi-cart2"></i></a>
+          <a href="details.php?pro_id=<?php echo $products->pro_id ; ?>" class="btn btn-warning"><i class="bi bi-info-square"></i></a>
         </div>
       </div>
     </div>

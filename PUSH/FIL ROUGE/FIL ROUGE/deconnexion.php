@@ -1,7 +1,7 @@
 <!-- Appel des pages nécéssaires, connexion à la DB et création de la requête pour se déconnecter -->
 <?php
 session_start() ;
-require "connexion_bdd.php" ;
+require "connexion_db.php" ;
 $db = connexionBase () ;
 $login = $_SESSION["login"] ;
 $wequete = "UPDATE users SET user_d_last = NOW() WHERE user_login = '$login'" ;

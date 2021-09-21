@@ -3,7 +3,7 @@
 // Appel des pages nécéssaires, connexion à la DB et création de la requête
 $title = "Jarditou | Login" ;
 require "header.php" ;
-require "connexion_bdd.php" ;
+require "connexion_db.php" ;
 $db = connexionBase() ; 
 $requete = "SELECT * FROM users" ;
 $result = $db -> query($requete) ;             

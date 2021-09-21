@@ -2,7 +2,7 @@
 session_start() ;
 require "connexion_db.php" ;
 $db = connexionBase() ;
-$requete = "UPDATE produits SET pro_ref = :ref, pro_libelle = :lib, pro_desc = :desc, pro_prix = :prix, pro_stock = :sto, pro_couleur = :col, pro_photo = :photo, NOW() WHERE pro_id = :id" ;
+$requete = "UPDATE produits SET pro_ref = :ref, pro_libelle = :lib, pro_desc = :desc, pro_prix = :prix, pro_stock = :sto, pro_couleur = :col, pro_d_modif = NOW() WHERE pro_id = :id" ;
 $result = $db -> prepare($requete) ;
 $result -> bindValue(":id", $_POST["id"]) ;
 $result -> bindValue(":ref", $_POST["ref"]) ;
