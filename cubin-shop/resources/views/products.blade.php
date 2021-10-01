@@ -11,8 +11,8 @@
 
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-@if (count($pros) > 0)
-        @foreach($pros as $product)
+@if (count($products) > 0)
+        @foreach($products as $product)
        
             <div class="w-full bg-white rounded-lg shadow-lg p-12 flex flex-col justify-center items-center">
                 <div class="mb-8">

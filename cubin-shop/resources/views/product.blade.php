@@ -17,13 +17,14 @@
         <p class="text-2xl text-green-500">Prix : {{$product[0]->pro_prix}}€</p>
         <br><br><br>
         <p class="text-2xl text-yellow-600">Référence : {{$product[0]->pro_ref}}</p>
-        <p>{{$product[0]->pro_couleur}}</p>
+        
+
         <br>
 
         <div class="flex">
 
             <div class="flex">
-                <a href="{{ Route('modif',['idd' => $product[0]->pro_id ]) }}" class="mr-4 bg-transparent hover:bg-yellow-300 text-yellow-300 font-semibold hover:text-white py-2 px-4 border border-yellow-300 hover:border-transparent rounded">
+                <a href="/modif/{{ $product[0]->pro_id }}" class="mr-4 bg-transparent hover:bg-yellow-300 text-yellow-300 font-semibold hover:text-white py-2 px-4 border border-yellow-300 hover:border-transparent rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -33,7 +34,7 @@
             </div>
 
             <div class="flex">
-                <a href="{{ Route('delete', ['iddd' => $product[0]->pro_id]) }}"
+                <a href="/delete/{{ $product[0]->pro_id }}"
                     class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">

@@ -18,9 +18,9 @@ class PostController extends Controller
     }
 
     public function getpros(){
-        $pros = DB::select('select * from produits');
+        $products = DB::select('select * from produits');
      
-        return view('products', ['pros' => $pros]);
+        return view('products', ['products' => $products]);
     }
 
     public function index(){
@@ -37,20 +37,20 @@ class PostController extends Controller
         return view('contact');
     }
     
-    public function modif($idd){
+    public function modif($id){
 
-        $pro = DB::select("select * from produits where pro_id = $idd");
+        $product = DB::select("select * from produits where pro_id = $id");
         
 
-        return view('modif', ['pro' => $pro]);        
+        return view('modif', ['product' => $product]);        
     }
     
-    public function delete($iddd){
+    public function delete($id){
 
-        $produit = DB::select("select * from produits where pro_id = $iddd");
+        $product = DB::select("select * from produits where pro_id = $id");
 
-        $url = 'photos_cube/'. $produit[0]->pro_id.'.'.$produit[0]->pro_photo;
+        $url = 'photos_cube/'. $product[0]->pro_id.'.'.$product[0]->pro_photo;
 
-        return view('delete', ['produit' => $produit, 'url' => $url]);
+        return view('delete', ['product' => $product, 'url' => $url]);
     }
 }
