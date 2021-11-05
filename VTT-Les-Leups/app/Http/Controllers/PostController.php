@@ -13,4 +13,8 @@ class PostController extends Controller
     public function activites(){
         return view('activites');
     }
+
+    public function inscription(){
+        return view('inscription');
+    }
 }

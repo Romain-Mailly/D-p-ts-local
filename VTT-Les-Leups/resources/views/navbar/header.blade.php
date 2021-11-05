@@ -13,8 +13,8 @@
       <i class="fas fa-bars"></i>
     </div >
       <div class="flex mr-8 hidden md:flex">
-        <a href="{{ Route('activites') }}" class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2 rounded">Activités</a>
-        <a href="#" class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2 rounded">Link</a>
+        <a href="{{ Route('activites') }}" class="bg-yellow-600 text-white rounded hover:text-yellow-600 border-2 border-yellow-600 hover:bg-white px-4 py-2 m-2 rounded">Activités</a>
+        <a href="{{ Route('inscription') }}" class="bg-yellow-600 text-white rounded hover:text-yellow-600 border-2 border-yellow-600 hover:bg-white px-4 py-2 m-2 rounded">Inscription</a>
       </div>
   </div>
   
