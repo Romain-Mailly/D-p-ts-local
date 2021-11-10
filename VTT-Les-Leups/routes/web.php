@@ -15,5 +15,7 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('index');
-Route::get('/activites', [PostController::class, 'activites'])->name('activites');
+Route::get('/partenaires', [PostController::class, 'partenaires'])->name('partenaires');
 Route::get('/inscription', [PostController::class, 'inscription'])->name('inscription');
+Route::get('/connexion', [PostController::class, 'connexion'])->name('connexion');
+Route::post('/inscription', [PostController::class, 'validation_inscription']);
