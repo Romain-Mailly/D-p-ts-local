@@ -74,10 +74,6 @@ class PostController extends Controller
         return view('commande');
     }
 
-    public function activités(){
-        return view('activités');
-    }
-
     public function profil(){
         return view('profil');
     }
@@ -158,10 +154,6 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function reglement(){
-        return view('reglement_du_raid');
-    }
-
     public function raid(){
         return view('raid_des_salamandres');
     }
@@ -198,4 +190,19 @@ class PostController extends Controller
         return view('contact');
     }
 
+    public function adhesion(){
+        return view('adhesion');
+    }
+
+    public function circuits(){
+        return view ('circuits');
+    }
+
+    public function mentions_légales(){
+        return view ('mentions_légales');
+    }
+
+    public function chartre(){
+        return view ('chartre');
+    }
 }

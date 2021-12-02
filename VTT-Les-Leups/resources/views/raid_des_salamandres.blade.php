@@ -55,7 +55,7 @@
 
 <br>
 
-<i class="text-xs fas fa-arrow-right"></i> <a href="/reglement_du_raid" class="text-xl text-yellow-500 hover:underline focus:text-yellow-700 ">Le réglement complet du Raid des Salamandres.</a>
+<i class="text-xs fas fa-arrow-right"></i> <a href="https://vttlesleups.fr/wp-content/uploads/2021/11/Reglement-Raid.pdf" rel="noopener noreferrer" target="_blank" class="text-xl text-yellow-500 hover:underline focus:text-yellow-700 ">Le réglement complet du Raid des Salamandres.</a>
 
 <br>
 
