@@ -43,7 +43,7 @@
         <a href="{{ Route('circuits') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-map-marked-alt"></i> Tracés GPS</a>
         <a href="{{ Route('shop') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-shopping-cart"></i> Shop</a>
         <a href="{{ Route('partenaires') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="far fa-handshake"></i> Partenaires</a>
-        <a href="{{ Route('connexion') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+        <a href="{{ Route('login') }}"" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-sign-in-alt"></i> Connexion</a>
         <a href="{{ Route('admin') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-user-cog"></i> Admin</a>
         
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>

@@ -43,8 +43,12 @@ Route::post('/inscription', [PostController::class, 'validation_inscription']);
 Route::post('/modif/{id}', [PostController::class, 'validation_modif'])->name('valid.modif')->whereNumber('id');
 
 
+Route::get('/home', [PostController::class, 'home']);
+Route::get('/foo', [PostController::class, 'foo']);
 
 
-Route::get('/dashboard', function () {return view('dashboard');})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

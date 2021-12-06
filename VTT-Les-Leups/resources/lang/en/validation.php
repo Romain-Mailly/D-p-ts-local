@@ -112,9 +112,9 @@ return [
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'same' => 'The :attribute and :other must match.',
     'size' => [
-        'numeric' => 'The :attribute must be :size.',
+        'numeric' => 'Le :attribute doit contenir au moins :size.',
         'file' => 'The :attribute must be :size kilobytes.',
-        'string' => 'The :attribute must be :size characters.',
+        'string' => 'Le :attribute doit contenir au moins :size characters.',
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',

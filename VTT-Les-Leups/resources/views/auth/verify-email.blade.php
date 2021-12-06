@@ -1,3 +1,7 @@
+@extends('layouts.base')
+
+@section('content')
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -37,3 +41,5 @@
         </div>
     </x-auth-card>
 </x-guest-layout>
+
+@endsection

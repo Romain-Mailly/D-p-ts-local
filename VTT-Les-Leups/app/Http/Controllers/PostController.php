@@ -205,4 +205,13 @@ class PostController extends Controller
     public function chartre(){
         return view ('chartre');
     }
+
+    public function foo(){
+        return view('test.foo');
+    }
+
+    public function home(){
+        return view('home');
+    }
+
 }
