@@ -8,7 +8,7 @@
         class="text-yellow-500 title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">
         PARTENAIRES</h1>
     <p class="text-yellow-500 lg:w-1/2 w-full leading-relaxed text-base">
-    Ici vous pouvez" retrouver les différents partenaires du club.
+    Ici vous pouvez retrouver les différents partenaires du club.
     </p>
 </div>
 

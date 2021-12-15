@@ -26,7 +26,7 @@
 <br><br>
 
 <p class="text-xl">
-<b>Propriétaire :</b> VTT LES LEUPS , 6 Rue de Montendeo , 02410 Saint Gobain , France
+<b>Propriétaire :</b> VTT LES LEUPS , 6 Rue de Montevideo , 02410 Saint Gobain , France
 </p>
 <br>
 <p class="text-xl">

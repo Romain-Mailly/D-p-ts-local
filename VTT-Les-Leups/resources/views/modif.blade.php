@@ -27,7 +27,7 @@
             <!--         tip - here neede inline-block , but why? -->
             <label for="nom" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Nom</label>
-            <input type="text" id="nom" name="nom" placeholder="Doe" value="{{ $profil[0]->util_nom }}" class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="nom" name="nom" placeholder="Doe" value="{{ $profil[0]->name }}" class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
                         
@@ -40,7 +40,7 @@
             <!-- Prénom -->
             <label for="prenom" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Prénom</label>
-            <input type="text" id="prenom" name="prenom" placeholder="John" value="{{ $profil[0]->util_prenom }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="prenom" name="prenom" placeholder="John" value="{{ $profil[0]->prenom }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('prenom'))
@@ -52,7 +52,7 @@
             <!-- Date de naissance -->
             <label for="ddn" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Date de naissance</label>
-            <input type="date" id="ddn" name="ddn" placeholder="date" value="{{ $profil[0]->util_ddn }}"  class="flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="date" id="ddn" name="ddn" placeholder="date" value="{{ $profil[0]->ddn }}"  class="flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-500 placeholder-gray-400
                         outline-none">*
             @if($errors->has('ddn'))
@@ -64,7 +64,7 @@
             <!-- Date de naissance -->
             <label for="adhesion" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Date de 1ère adhésion</label>
-            <input type="date" name="adhesion" placeholder="date" value="{{ $profil[0]->util_adhesion }}"  class="flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="date" name="adhesion" placeholder="date" value="{{ $profil[0]->adhesion }}"  class="flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-500 placeholder-gray-400
                         outline-none">*
             @if($errors->has('ddn'))
@@ -76,7 +76,7 @@
             <!-- Numéro de licence -->
             <label for="licence" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Numéro de licence (ufolep)</label>
-            <input type="text" id="licence" name="licence" placeholder="43072006391" value="{{ $profil[0]->util_licence }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="licence" name="licence" placeholder="43072006391" value="{{ $profil[0]->licence }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('licence'))
@@ -88,7 +88,7 @@
             <!-- Adresse postale -->
             <label for="adresse" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Adresse</label>
-            <input type="text" id="adresse" name="adresse" placeholder="6 rue de Montevideo" value="{{ $profil[0]->util_adresse }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="adresse" name="adresse" placeholder="6 rue de Montevideo" value="{{ $profil[0]->adresse }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('adresse'))
@@ -100,7 +100,7 @@
             <!-- Ville -->
             <label for="ville" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Ville</label>
-            <input type="text" id="ville" name="ville" placeholder="Saint Gobain" value="{{ $profil[0]->util_ville }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="ville" name="ville" placeholder="Saint Gobain" value="{{ $profil[0]->ville }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('ville'))
@@ -112,7 +112,7 @@
             <!-- Code postal -->
             <label for="cp" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Code postal</label>
-            <input type="text" id="cp" name="cp" placeholder="02410" value="{{ $profil[0]->util_cp }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="cp" name="cp" placeholder="02410" value="{{ $profil[0]->cp }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('cp'))
@@ -124,7 +124,7 @@
             <!-- Téléphone 1 -->
             <label for="tel1" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Téléphone 1</label>
-            <input type="text" id="tel1" name="tel1" placeholder="0627041421" value="{{ $profil[0]->util_tel1 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="tel1" name="tel1" placeholder="0627041421" value="{{ $profil[0]->tel1 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('tel1'))
@@ -136,7 +136,7 @@
             <!-- Téléphone 2 -->
             <label for="tel2" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Téléphone 2</label>
-            <input type="text" id="tel2" name="tel2" placeholder="0621140427" value="{{ $profil[0]->util_tel2 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="tel2" name="tel2" placeholder="0621140427" value="{{ $profil[0]->tel2 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">
         </div>
@@ -145,7 +145,7 @@
             <!-- Email 1 -->
             <label for="email1" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Email 1</label>
-            <input type="email" id="email1" name="email1" placeholder="vttlesleups@hotmail.com" value="{{ $profil[0]->util_email1 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="email" id="email1" name="email1" placeholder="vttlesleups@hotmail.com" value="{{ $profil[0]->email1 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('email1'))
@@ -157,7 +157,7 @@
             <!-- Email 2 -->
             <label for="email2" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Email 2</label>
-            <input type="email" id="email2" name="email2" placeholder="john.doe@email.fr" value="{{ $profil[0]->util_email2 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="email" id="email2" name="email2" placeholder="john.doe@email.fr" value="{{ $profil[0]->email2 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">
             @if($errors->has('email2'))
@@ -169,7 +169,7 @@
             <!-- Identifiant -->
             <label for="id" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Identifiant</label>
-            <input type="text" id="id" name="id" placeholder="Initiales + année 1ère adéshion + mois (ex: DC202011)" value="{{ $profil[0]->util_identifiant }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="text" id="id" name="id" placeholder="Initiales + année 1ère adéshion + mois (ex: DC202011)" value="{{ $profil[0]->identifiant }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
             @if($errors->has('id'))
@@ -204,7 +204,7 @@
         <div class="text-right">
             <button type="submit"
                 class="py-3 px-5 bg-yellow-500 text-black font-bold rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white">Sauvegarder</button>
-            <a href="/profil/{{ $profil[0]->util_id }}"
+            <a href="/profil/{{ $profil[0]->id }}"
                 class="py-3 px-5 bg-yellow-500 text-black font-bold rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white">Annuler</a>
         </div>
 

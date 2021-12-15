@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
@@ -12,6 +13,7 @@ class PostController extends Controller
     public function index(){
         return view('index');
     }
+
 
     public function partenaires(){
         return view('partenaires');
@@ -29,37 +31,31 @@ class PostController extends Controller
     public function validation_inscription(Request $request){
 
         $validation = $request->validate([
-            'nom' => ['required'],
-            'prenom' => ['required'],
-            'ddn' => ['required'],
-            'adhesion' => ['required'],
-            'licence' => ['required'],
-            'adresse' => ['required'],
-            'ville' => ['required'],
-            'cp' => ['required', 'min:5', 'max:5'],
-            'tel1' => ['required'],
-            'email1' => ['required'],
-            'id' => ['required'],
-            'mdp' => ['required', 'min:7'],
-            'mdp2' => ['required', 'same:mdp']
-        ]);
+        //     'prenom' => ['required'],
+        //     'ddn' => ['required'],
+        //     'adhesion' => ['required'],
+        //     'licence' => ['required'],
+        //     'adresse' => ['required'],
+        //     'ville' => ['required'],
+             'cp' => ['required', 'min:5', 'max:5']
+        //     'tel1' => ['required'],
+        //     'email1' => ['required'],
+        //     'id' => ['required'],
+     ]);
 
-        DB::table('utilisateurs')->insert([
-            'util_nom' => $request->nom,
-            'util_prenom'  => $request->prenom,
-            'util_ddn' => $request->ddn,
-            'util_adhesion' => $request->adhesion,
-            'util_licence' => $request->licence,
-            'util_adresse' => $request->adresse,
-            'util_ville' => $request->ville,
-            'util_cp' => $request->cp,
-            'util_tel1' => $request->tel1,
-            'util_tel2' => $request->tel2,
-            'util_email1' => $request->email1,
-            'util_email2' => $request->email2,
-            'util_identifiant' => $request->id,
-            'util_mdp' => Hash::make($request->mdp),
-            'created_at' => now()
+        DB::table('users')->insert([
+            'prenom'  => $request->prenom,
+            'ddn' => $request->ddn,
+            'adhesion' => $request->adhesion,
+            'licence' => $request->licence,
+            'adresse' => $request->adresse,
+            'ville' => $request->ville,
+            'cp' => $request->cp,
+            'tel1' => $request->tel1,
+            'tel2' => $request->tel2,
+            'email1' => $request->email1,
+            'email2' => $request->email2,
+            'identifiant' => $request->id
         ]);
 
         return redirect('/');
@@ -79,14 +75,14 @@ class PostController extends Controller
     }
 
     public function profil_id($id){
-        $profil = DB::select("select * from utilisateurs where util_id = $id");
+        $profil = DB::select("select * from users where id = $id");
 
         return view('profil', ['profil' => $profil]);
 
     }
 
     public function modif($id){
-    $profil = DB::select("select * from utilisateurs where util_id = $id");
+    $profil = DB::select("select * from users where id = $id");
 
     return view('modif', ['profil' => $profil]);
     }
@@ -112,19 +108,19 @@ class PostController extends Controller
         ]);
 
 
-        DB::update("update utilisateurs set util_nom = '$request->nom' where util_id = $id");
-        DB::update("update utilisateurs set util_prenom = '$request->prenom' where util_id = $id");
-        DB::update("update utilisateurs set util_ddn = '$request->ddn' where util_id = $id");
-        DB::update("update utilisateurs set util_adhesion = '$request->adhesion' where util_id = $id");
-        DB::update("update utilisateurs set util_licence = '$request->licence' where util_id = $id");
-        DB::update("update utilisateurs set util_adresse = '$request->adresse' where util_id = $id");
-        DB::update("update utilisateurs set util_ville = '$request->ville' where util_id = $id");
-        DB::update("update utilisateurs set util_cp = '$request->cp' where util_id = $id");
-        DB::update("update utilisateurs set util_tel1 = '$request->tel1' where util_id = $id");
-        DB::update("update utilisateurs set util_tel2 = '$request->tel2' where util_id = $id");
-        DB::update("update utilisateurs set util_email1 = '$request->email1' where util_id = $id");
-        DB::update("update utilisateurs set util_email2 = '$request->email2' where util_id = $id");
-        DB::update("update utilisateurs set util_identifiant = '$request->id' where util_id = $id");
+        DB::update("update users set name = '$request->nom' where id = $id");
+        DB::update("update users set prenom = '$request->prenom' where id = $id");
+        DB::update("update users set ddn = '$request->ddn' where id = $id");
+        DB::update("update users set adhesion = '$request->adhesion' where id = $id");
+        DB::update("update users set licence = '$request->licence' where id = $id");
+        DB::update("update users set adresse = '$request->adresse' where id = $id");
+        DB::update("update users set ville = '$request->ville' where id = $id");
+        DB::update("update users set cp = '$request->cp' where id = $id");
+        DB::update("update users set tel1 = '$request->tel1' where id = $id");
+        DB::update("update users set tel2 = '$request->tel2' where id = $id");
+        DB::update("update users set email1 = '$request->email1' where id = $id");
+        DB::update("update users set email2 = '$request->email2' where id = $id");
+        DB::update("update users set identifiant = '$request->id' where id = $id");
         // $mdp = Hash::make($request->mdp);
         // DB::update("update utilisateurs set util_mdp = '$mdp' where util_id = $id");
 
@@ -135,21 +131,25 @@ class PostController extends Controller
 
     public function admin(){
 
-        $adherants = DB::select('select * from utilisateurs');
+        if (!Gate::allows('access-admin')){
+            abort('403');
+        }
+
+        $adherants = DB::select('select * from users');
 
         return view('admin', ['adherants' => $adherants]);
     }
     
     public function delete($id){
 
-        $profil = DB::select("select * from utilisateurs where util_id = $id");
+        $profil = DB::select("select * from users where id = $id");
 
 
         return view('delete', ['profil' => $profil]);
     }
 
     public function profilDelete($id){
-        DB::delete("delete from utilisateurs where util_id = $id");
+        DB::delete("delete from users where id = $id");
 
         return redirect('/');
     }
@@ -207,11 +207,11 @@ class PostController extends Controller
     }
 
     public function foo(){
-        return view('test.foo');
-    }
+        if(!Gate::allows('access-admin')){
+            abort('403');
+        }
 
-    public function home(){
-        return view('home');
+        return view('test.foo');
     }
 
 }

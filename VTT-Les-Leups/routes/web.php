@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('index');
+
 Route::get('/partenaires', [PostController::class, 'partenaires'])->name('partenaires');
 Route::get('/inscription', [PostController::class, 'inscription'])->name('inscription');
 Route::get('connexion', [PostController::class, 'connexion'])->name('connexion');
@@ -43,7 +45,6 @@ Route::post('/inscription', [PostController::class, 'validation_inscription']);
 Route::post('/modif/{id}', [PostController::class, 'validation_modif'])->name('valid.modif')->whereNumber('id');
 
 
-Route::get('/home', [PostController::class, 'home']);
 Route::get('/foo', [PostController::class, 'foo']);
 
 

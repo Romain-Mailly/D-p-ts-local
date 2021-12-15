@@ -14,7 +14,7 @@
 
 
 
-<span class="float-left text-2xl"><a class="hover:underline text-yellow-500" href="/inscription"><i class="fas fa-user-plus"></i> Cliquez ici</a> pour créer un profil.</span>
+<span class="float-left text-2xl"><a class="hover:underline text-yellow-500 focus:text-yellow-700" href="/register"><i class="fas fa-user-plus"></i> Cliquez ici</a> pour créer un profil.</span>
 
 <br><br>
 
@@ -26,15 +26,15 @@
        
             <div class="w-full bg-white rounded-lg shadow-lg p-12 flex flex-col justify-center items-center">
                 <div class="mb-8">
-                <a href="profil/{{$adherant->util_id }}">
-                    <img class="object-center object-cover rounded h-50 w-50" src="/images/Adhérants/{{$adherant->util_nom}}.jpg" alt="photo">
+                <a href="profil/{{$adherant->id }}">
+                    <img class="object-center object-cover rounded h-50 w-50" src="/images/Adhérants/{{$adherant->name}}.jpg" alt="photo">
                 </a>
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-gray-700 font-bold mb-2"><a href="profil/{{$adherant->util_id }}">{{ $adherant->util_prenom }} {{ $adherant->util_nom }}</a></p>
-                    <p class="text-base text-gray-400 font-normal">{{ $adherant->util_licence }}</p>
+                    <p class="text-xl text-gray-700 font-bold mb-2"><a href="profil/{{$adherant->identifiant }}">{{ $adherant->prenom }} {{ $adherant->name }}</a></p>
+                    <p class="text-base text-gray-400 font-normal">{{ $adherant->licence }}</p>
                     <br>
-                    <a href="/delete/{{ $adherant->util_id }}" class="py-3 px-3 bg-red-500 text-black font-bold rounded hover:text-red-500 border-2 border-red-500 hover:bg-white"><i class="far fa-trash-alt"></i> Supprimer</a>
+                    <a href="/delete/{{ $adherant->id }}" class="py-3 px-3 bg-red-500 text-black font-bold rounded hover:text-red-500 border-2 border-red-500 hover:bg-white"><i class="far fa-trash-alt"></i> Supprimer</a>
                 </div>
             </div>
             

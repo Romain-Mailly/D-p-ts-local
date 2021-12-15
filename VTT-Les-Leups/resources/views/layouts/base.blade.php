@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\Gate; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

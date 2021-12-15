@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\Gate; ?>
 <div class="bg-yellow-500 w-full h-full">
   <center><a href="{{ Route('index') }}"><img class="animate-pulse" src="/images/logo.png" alt="Logo VTT | Les Leups"></a></center>
 </div>
@@ -43,8 +44,11 @@
         <a href="{{ Route('circuits') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-map-marked-alt"></i> Tracés GPS</a>
         <a href="{{ Route('shop') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-shopping-cart"></i> Shop</a>
         <a href="{{ Route('partenaires') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="far fa-handshake"></i> Partenaires</a>
-        <a href="{{ Route('login') }}"" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-sign-in-alt"></i> Connexion</a>
-        <a href="{{ Route('admin') }}" class="bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold"><i class="fas fa-user-cog"></i> Admin</a>
+        <?php
+         if (Gate::allows('access-admin')){
+            echo ("<a href='/admin' class='bg-yellow-500 text-black rounded hover:text-yellow-500 border-2 border-yellow-500 hover:bg-white px-4 py-2 m-2 rounded font-bold'><i class='fas fa-user-cog'></i> Admin</a>");
+        }
+        ?>
         
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
 <div class=" bg-transparent flex justify-center items-center dark:bg-gray-500">
@@ -58,10 +62,36 @@
             <div class="cursor-pointer">Gros BG</div>
           </div>
         </div>
+
+      
+        @guest
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5">
+          <ul class="space-y-3 dark:text-white">
+          <hr class="dark:border-gray-700">
+            <li class="font-medium">
+              <a href="/login" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
+                <div class="mr-3">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </div>
+                Se connecter
+              </a>
+            </li>
+            <hr class="dark:border-gray-700">
+          </ul>
+        </div>
+
+        @endguest
+
+
+
+
+        @auth
+
         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5">
           <ul class="space-y-3 dark:text-white">
             <li class="font-medium">
-              <a href="/profil/2" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
+              <a href="/profil/3" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
                 <div class="mr-3">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
@@ -78,7 +108,7 @@
             </li>
             <hr class="dark:border-gray-700">
             <li class="font-medium">
-              <a href="#" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600">
+              <a href="{{ Route('logout') }}" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600">
                 <div class="mr-3 text-red-600">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
                 </div>
@@ -87,8 +117,10 @@
             </li>
           </ul>
         </div>
+
+        @endauth
       </div>
-  </div>
+    </div>
 </div>
         
       </div>

@@ -14,4 +14,7 @@
             </div>
         </div>
     </div>
+
+
+    <a href="{{ Route('logout') }}">YEAH !</a>
 </x-app-layout>
