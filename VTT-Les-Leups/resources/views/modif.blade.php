@@ -145,10 +145,10 @@
             <!-- Email 1 -->
             <label for="email1" class="inline-block w-20 mr-6 text-right 
                                    font-bold text-gray-600">Email 1</label>
-            <input type="email" id="email1" name="email1" placeholder="vttlesleups@hotmail.com" value="{{ $profil[0]->email1 }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
+            <input type="email" id="email1" name="email1" placeholder="vttlesleups@hotmail.com" value="{{ $profil[0]->email }}"  class="placeholder-yellow-400 flex-1 py-2 border-b-2 border-gray-400 focus:border-gray-900 
                         text-yellow-600 placeholder-gray-400
                         outline-none">*
-            @if($errors->has('email1'))
+            @if($errors->has('email'))
                 <br> <h6 class="text-red-500 ml-10">Veuillez saisir votre email</h6>
             @endif
         </div>

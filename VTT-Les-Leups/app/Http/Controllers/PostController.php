@@ -31,16 +31,16 @@ class PostController extends Controller
     public function validation_inscription(Request $request){
 
         $validation = $request->validate([
-        //     'prenom' => ['required'],
-        //     'ddn' => ['required'],
-        //     'adhesion' => ['required'],
-        //     'licence' => ['required'],
-        //     'adresse' => ['required'],
-        //     'ville' => ['required'],
-             'cp' => ['required', 'min:5', 'max:5']
-        //     'tel1' => ['required'],
-        //     'email1' => ['required'],
-        //     'id' => ['required'],
+            'prenom' => ['required'],
+            'ddn' => ['required'],
+            'adhesion' => ['required'],
+            'licence' => ['required'],
+            'adresse' => ['required'],
+            'ville' => ['required'],
+             'cp' => ['required', 'min:5', 'max:5'],
+            'tel1' => ['required'],
+            'email1' => ['required'],
+            'id' => ['required'],
      ]);
 
         DB::table('users')->insert([
@@ -53,7 +53,7 @@ class PostController extends Controller
             'cp' => $request->cp,
             'tel1' => $request->tel1,
             'tel2' => $request->tel2,
-            'email1' => $request->email1,
+            'email' => $request->email1,
             'email2' => $request->email2,
             'identifiant' => $request->id
         ]);
@@ -118,7 +118,7 @@ class PostController extends Controller
         DB::update("update users set cp = '$request->cp' where id = $id");
         DB::update("update users set tel1 = '$request->tel1' where id = $id");
         DB::update("update users set tel2 = '$request->tel2' where id = $id");
-        DB::update("update users set email1 = '$request->email1' where id = $id");
+        DB::update("update users set email = '$request->email1' where id = $id");
         DB::update("update users set email2 = '$request->email2' where id = $id");
         DB::update("update users set identifiant = '$request->id' where id = $id");
         // $mdp = Hash::make($request->mdp);
@@ -126,7 +126,6 @@ class PostController extends Controller
 
 
         return redirect('/');
-
     }
 
     public function admin(){

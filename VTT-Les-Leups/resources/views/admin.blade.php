@@ -14,38 +14,40 @@
 
 
 
-<span class="float-left text-2xl"><a class="hover:underline text-yellow-500 focus:text-yellow-700" href="/register"><i class="fas fa-user-plus"></i> Cliquez ici</a> pour créer un profil.</span>
+<span class="float-left text-2xl"><a class="hover:underline text-yellow-500 focus:text-yellow-700" href="/inscription"><i class="fas fa-user-plus"></i> Cliquez ici</a> pour créer un profil.</span>
 
 <br><br>
 
 
-<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-@if (count($adherants) > 0)
-        @foreach($adherants as $adherant)
-       
-            <div class="w-full bg-white rounded-lg shadow-lg p-12 flex flex-col justify-center items-center">
-                <div class="mb-8">
-                <a href="profil/{{$adherant->id }}">
-                    <img class="object-center object-cover rounded h-50 w-50" src="/images/Adhérants/{{$adherant->name}}.jpg" alt="photo">
-                </a>
-                </div>
-                <div class="text-center">
-                    <p class="text-xl text-gray-700 font-bold mb-2"><a href="profil/{{$adherant->identifiant }}">{{ $adherant->prenom }} {{ $adherant->name }}</a></p>
-                    <p class="text-base text-gray-400 font-normal">{{ $adherant->licence }}</p>
-                    <br>
-                    <a href="/delete/{{ $adherant->id }}" class="py-3 px-3 bg-red-500 text-black font-bold rounded hover:text-red-500 border-2 border-red-500 hover:bg-white"><i class="far fa-trash-alt"></i> Supprimer</a>
-                </div>
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @if (count($adherants) > 0)
+                @foreach($adherants as $adherant)
+
+                    <div class="w-full bg-white rounded-lg shadow-lg p-12 flex flex-col justify-center items-center">
+                        <div class="mb-8">
+                        <a href="profil/{{$adherant->id }}">
+                            <img class="object-center object-cover rounded h-50 w-50" src="/images/Adhérants/{{$adherant->name}}.jpg" alt="photo">
+                        </a>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xl text-gray-700 font-bold mb-2"><a href="profil/{{$adherant->identifiant }}">{{ $adherant->prenom }} {{ $adherant->name }}</a></p>
+                            <p class="text-base text-gray-400 font-normal">{{ $adherant->licence }}</p>
+                            <br>
+                            <a href="/delete/{{ $adherant->id }}" class="py-3 px-3 bg-red-500 text-black font-bold rounded hover:text-red-500 border-2 border-red-500 hover:bg-white"><i class="far fa-trash-alt"></i> Supprimer</a>
+                        </div>
+                    </div>
+
+
+                @endforeach
             </div>
-            
-            
-            @endforeach
-        </div>
-    </section>
-</>
+        </section>
+        
         @else
+        
         <span>Aucun post en base de données</span>
-    @endif
+
+        @endif
 
 
 @endsection

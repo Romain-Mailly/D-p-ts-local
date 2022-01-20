@@ -33,7 +33,7 @@
            
          </div>
          <div class="lg:w-full text-center">
-           <span class="font-bold">{{ $profil[0]->email1 }}</span>
+           <span class="font-bold">{{ $profil[0]->email }}</span>
          </div>
        </div>
     </div>
