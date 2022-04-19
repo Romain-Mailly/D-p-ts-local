@@ -1,9 +1,0 @@
-1. Création d'un dossier Backup qui stockera la sauvegarde.
-Emplacement du dossier : C:\Backup
-
-2. Ouverture du terminal à l'emplacement du dossier bin de MySQL (Laragon).
-Emplacement du dossier : C:\laragon\bin\mysql\mysql-5.7.33-winx64\bin
-
-3. Utilisation de la commande de sauvegarde dans le terminal : mysqldump --user=root --password=admin --databases gescom_afpa > C:\Backup\backup_gescom_afpa.sql
-
-4. Utilisation de la commande de restauration dans le terminal : mysql --user=root --password=admin < C:\Backup\backup_gescom_afpa.sql
