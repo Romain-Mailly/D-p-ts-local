@@ -1,0 +1,30 @@
+html
+{
+    width: 1126px;
+}
+.one
+{
+    font-size: 18pt;
+    padding-left: 300px;
+}
+.two
+{
+    display: flex;
+}
+.three
+{
+    float: right;
+    width: 351px;
+    height: 459px;
+    background-color: grey;
+}
+ul
+{
+    background-color: black;
+    color: white;
+    border: 15px solid black;
+}
+a:visited
+{
+    color: white;
+}

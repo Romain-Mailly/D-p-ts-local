@@ -1,0 +1,66 @@
+
+.one
+{
+    font-size: 18pt;
+    padding-left: 30%;
+}
+.two
+{
+    display: flex;
+}
+.three
+{
+    float: right;
+    width: 351px;
+    height: 459px;
+    background-color: grey;
+}
+ul
+{
+    background-color: black;
+    color: white;
+    border: 15px solid black;
+}
+.ul1 a:visited
+{
+    color: white;
+}
+a:visited
+{
+    color: white;
+}
+#Promotions
+{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) 
+{ 
+    html
+    {
+        font-size: 100%;
+    }
+    
+    .three
+    {
+        display: none;
+    }
+    
+    img
+    {
+        max-width: 100%;
+        height: auto;
+    }
+
+    nav a
+    {
+        display: block;
+    }
+
+    footer a
+    {
+        display: block;
+    }
+
+} 
+ 
